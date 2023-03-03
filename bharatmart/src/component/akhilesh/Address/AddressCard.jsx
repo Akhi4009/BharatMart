@@ -8,7 +8,7 @@ import {TbAlertTriangle} from "react-icons/tb"
 import { useNavigate } from 'react-router-dom'
 
 import {useDispatch,useSelector} from "react-redux"
-import {  deleteAddress, getAddress, updateAddress } from '../../redux/Address/action'
+import {  deleteAddress, getAddress, updateAddress } from "../../../redux/Address/action"
 import AddressForm from './AddressForm'
 
 // const initialAddress={
@@ -32,12 +32,11 @@ const AddressCard = () => {
   
   const dispatch=useDispatch()
 
-  const token=useSelector(store=>store.authReducer.token)
-  console.log(token)
+ 
 
 
   useEffect(()=>{
-    dispatch(getAddress(token))
+    dispatch(getAddress())
    
   },[])
 
@@ -47,7 +46,7 @@ console.log(Address)
  
 const handleSubmit=(e,data)=>{
   e.preventDefault()
- dispatch(updateAddress(data,Address[0]._id,token))
+ dispatch(updateAddress(data,Address[0]._id))
 
  onC()
  toast({
@@ -57,15 +56,13 @@ const handleSubmit=(e,data)=>{
   duration: 1000,
   isClosable: true,
 })
-navigate("/payment")
+
   
   }
-  const handleClick=()=>{
-    navigate("/payment")
-  }
+ 
   
   function handleDelete(id) {
-    dispatch(deleteAddress(id,token))
+    dispatch(deleteAddress(id))
     toast({
       title: 'Address Deleted Successfully',
       description: "Please add another address",
@@ -159,14 +156,7 @@ console.log(state,city,mobile)
               </Stack>
             </CardBody>
             <Divider />
-            <CardFooter>
-              
-                <Button variant='solid' colorScheme='blue' w="100%" bg="#00b5b7" onClick={handleClick}>
-               Deliver Here
-                </Button>
-              
-             
-            </CardFooter>
+           
             </Card>
           ))
          }

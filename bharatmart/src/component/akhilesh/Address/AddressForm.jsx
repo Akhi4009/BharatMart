@@ -50,7 +50,7 @@ const {name,mobile,address,landmark,pincode,city,state}=addressForm
   <Input placeholder='Enter State'  value={state} onChange={(e)=>dispatch({type:"STATE",payload:e.target.value})} />
 </FormControl>
    </Flex>
-   <Button type="submit" w={40} bg="#00b5b7" >Save & Deliver</Button>
+   <Button type="submit" w={40} bg="#00b5b7" >Save</Button>
    </Stack>
    </form>
    </Box>

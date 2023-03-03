@@ -1,10 +1,10 @@
 import { Box, HStack,Image,Heading,Text,Checkbox, Stack,Button,useToast } from '@chakra-ui/react'
 import React,{useEffect, useState} from 'react'
-import { addToOrder } from '../../redux/Order/action'
+
 import { useSelector,useDispatch } from 'react-redux'
-import { getCardData,deleteAllItemFromCart } from '../../redux/Cart/action'
+import { getCardData,deleteAllItemFromCart } from '../../../redux/Cart/action'
 import { useNavigate } from 'react-router-dom'
-import { addToTotalOrder } from '../../redux/TotalOrder/action'
+
 
 const CashOnDel = () => {
 
@@ -13,22 +13,21 @@ const CashOnDel = () => {
   const bgc=res?"#00b5b7":"gray"
   const toast=useToast()
   const navigate=useNavigate()
-  const token=useSelector(store=>store.authReducer.token)
+ 
 
   const dispatch=useDispatch()
   useEffect(()=>{
-dispatch(getCardData(token))
+dispatch(getCardData())
   },[dispatch,deleteAllItemFromCart])
 
   const data=useSelector(store=>store.cartReducer.cart)
   
  
 
-  const handleOrder=(data,id)=>{
+  const handleOrder=(id)=>{
     
- dispatch(addToOrder(data,token))
- dispatch(addToTotalOrder(data))
-dispatch(deleteAllItemFromCart(id,token))
+
+dispatch(deleteAllItemFromCart(id))
 setTimeout(()=>{
   navigate("/")
 },2000)
@@ -44,7 +43,7 @@ toast({
   }
 
  let res1=true
- if(data.length>0){
+ if(data.CartData?.length>0){
   res1=false
  }
 

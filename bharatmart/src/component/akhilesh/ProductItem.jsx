@@ -1,4 +1,4 @@
-import { Card,  CardBody, Image,Stack,Heading,Text,Button,Container,CardFooter,ButtonGroup,Divider} from '@chakra-ui/react'
+import { Card,  CardBody, Image,Stack,Heading,Text,Button,useToast,Divider} from '@chakra-ui/react'
 import axios from 'axios'
 import React,{useEffect, useState} from 'react'
 import {useSelector,useDispatch} from "react-redux"
@@ -16,6 +16,7 @@ const ProductItem = (ele) => {
 
 
  const dispatch=useDispatch()
+ const toast=useToast()
  
 
 
@@ -23,6 +24,13 @@ const ProductItem = (ele) => {
 
   const handleAdd=(ele)=>{
 dispatch(addToCart(ele))
+toast({
+  title: 'Item added in the cart',
+  description: "Thanku",
+  status: 'success',
+  duration: 1000,
+  isClosable: true,
+})
   }
 
  
@@ -30,7 +38,7 @@ dispatch(addToCart(ele))
  
   return (
     <>
-    <Card maxW='sm'>
+    <Card maxW='sm' h={450}>
     <CardBody>
       <Image
         src={image}
@@ -38,30 +46,28 @@ dispatch(addToCart(ele))
         borderRadius='lg'
         w={{base:"100%",md:"50%"}}
         m="auto"
+        h={200}
         
         
       />
-      <Stack mt='3' spacing='3'>
+      <Stack mt='3' >
         <Heading size='sm'>{brand}</Heading>
         <Text>
           {title}
         </Text>
-        <Text color='blue.600' >
+        <Text color='blue.600' fontWeight="bold" >
         ₹{price}
         </Text>
       </Stack>
-    </CardBody>
-    <Divider />
-    <CardFooter>
-      <ButtonGroup spacing='2'>
-        <Button variant='solid' colorScheme='blue'>
-          Buy now
-        </Button>
-        <Button variant='ghost' colorScheme='blue' onClick={()=>handleAdd(ele)}>
+      <Divider  />
+   
+       
+        <Button mt={5} variant='solid' colorScheme='blue' onClick={()=>handleAdd(ele)}>
           Add to cart
         </Button>
-      </ButtonGroup>
-    </CardFooter>
+    </CardBody>
+    
+      
   </Card>
     </>
   )

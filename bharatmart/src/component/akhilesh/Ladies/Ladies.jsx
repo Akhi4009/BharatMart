@@ -21,7 +21,7 @@ const data=Product.product?.filter(ele=>ele.category==="ladies")
 
 
   return (
-    <Grid templateColumns={{base:"repeat(1,1fr)", md:"repeat(3,1fr)"}} gap={10} justifyContent="space-around" alignItems="center">
+    <Grid templateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fr)",lg:"repeat(3,1fr)"}} gap={10} justifyContent="space-around" alignItems="center">
     {data && data.map(ele=>(
       <GridItem>
       <ProductItem key={ele._id} {...ele}/>

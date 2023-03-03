@@ -5,6 +5,7 @@ import CartItem from './CarTItem'
 
 import {useSelector,useDispatch} from "react-redux"
 import {  getCardData } from "../../../redux/Cart/action"
+import Address from '../../../Page/Address'
 
 
 
@@ -44,6 +45,7 @@ const CartBody = () => {
     <Heading as="h3" size="md">Total Price: ₹{total}</Heading>
     
     <Button>Proceed to pay</Button>
+   
     </Stack>
 
 

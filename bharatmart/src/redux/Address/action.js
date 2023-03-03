@@ -28,14 +28,14 @@ export const UpdateAddres=()=>{
 
 
 
-export const getAddress=(token)=>async (dispatch)=>{
+export const getAddress=()=>async (dispatch)=>{
     dispatch(AddressgetRequestAction)
   try {
-        const res = await fetch("https://outstanding-outfit-seal.cyclic.app/address", {
+        const res = await fetch("http://localhost:8080/address", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
-                "authorization":token 
+                
             },
         });
         const res_1 = await res.json();
@@ -47,43 +47,42 @@ export const getAddress=(token)=>async (dispatch)=>{
     }
 }
 
-export const addAddress=(payload,token)=>async(dispatch)=>{
+export const addAddress=(payload)=>async(dispatch)=>{
 
     try{
       
-        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/address/add`,{
+        const res = await fetch(`http://localhost:8080/address/add`,{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "authorization":token 
+                
             },
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(AddAddress())
-       dispatch(getAddress(token))
+       dispatch(getAddress())
      
     }catch(err){
         console.log(err)
     }
 }
 
-export const deleteAddress=(id,token)=>async(dispatch)=>{
+export const deleteAddress=(id)=>async(dispatch)=>{
 
     try{
        
-        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/address/delete/${id}`,{
+        const res = await fetch(`http://localhost:8080/address/delete/${id}`,{
             method: "DELETE",
             headers: {
-                "Content-type": "application/json",
-                "authorization":token 
+                "Content-type": "application/json"
             },
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(DeleteAddress)
-       dispatch(getAddress(token))
+       dispatch(getAddress())
        
     }catch(err){
         console.log(err)
@@ -91,22 +90,22 @@ export const deleteAddress=(id,token)=>async(dispatch)=>{
 }
 
 
-export const updateAddress=(payload,id,token)=>async(dispatch)=>{
+export const updateAddress=(payload,id,)=>async(dispatch)=>{
 
     try{
         
-        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/address/update/${id}`,{
+        const res = await fetch(`http://localhost:8080/address/update/${id}`,{
             method: "PATCH",
             headers: {
-                "Content-type": "application/json",
-                "authorization":token 
+                "Content-type": "application/json"
+               
             },
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(UpdateAddres)
-       dispatch(getAddress(token))
+       dispatch(getAddress())
     }catch(err){
         console.log(err)
     }

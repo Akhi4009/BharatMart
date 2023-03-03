@@ -1,5 +1,5 @@
 const express = require("express");
-const AddressModel = require("../model/Adrress.model");
+const AddressModel = require("../models/Adrress.model");
 
 const router = express.Router();
 
