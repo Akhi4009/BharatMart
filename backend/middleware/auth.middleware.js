@@ -19,4 +19,4 @@ if(token){
   }
 }
 
-module.exports={authorization};
+module.exports=authorization;

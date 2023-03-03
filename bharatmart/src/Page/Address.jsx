@@ -27,14 +27,14 @@ const Address = () => {
   const toast=useToast()
   const navigate=useNavigate()
 
-  
+  const token=JSON.parse(localStorage.getItem("token"))
 
 
   
 
   const handleSubmit=(e,data)=>{
     e.preventDefault()
-   dispatch(addAddress(data))
+   dispatch(addAddress(data,token))
    toast({
     title: 'Address Added Successfully',
     description: "Thanku",
@@ -47,7 +47,7 @@ const Address = () => {
     }
 
     useEffect(()=>{
-      dispatch(getAddress())
+      dispatch(getAddress(token))
     },[])
 
   const Address=useSelector(store=>store.addressReducer.Address)

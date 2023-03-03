@@ -28,13 +28,14 @@ export const UpdateAddres=()=>{
 
 
 
-export const getAddress=()=>async (dispatch)=>{
+export const getAddress=(token)=>async (dispatch)=>{
     dispatch(AddressgetRequestAction)
   try {
         const res = await fetch("http://localhost:8080/address", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
+                "authorization":token
                 
             },
         });
@@ -47,7 +48,7 @@ export const getAddress=()=>async (dispatch)=>{
     }
 }
 
-export const addAddress=(payload)=>async(dispatch)=>{
+export const addAddress=(payload,token)=>async(dispatch)=>{
 
     try{
       
@@ -55,6 +56,7 @@ export const addAddress=(payload)=>async(dispatch)=>{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
+                "authorization":token
                 
             },
             body:JSON.stringify(payload)
@@ -62,27 +64,28 @@ export const addAddress=(payload)=>async(dispatch)=>{
         const res_1= await res.json();
        console.log(res_1)
        dispatch(AddAddress())
-       dispatch(getAddress())
+       dispatch(getAddress(token))
      
     }catch(err){
         console.log(err)
     }
 }
 
-export const deleteAddress=(id)=>async(dispatch)=>{
+export const deleteAddress=(id,token)=>async(dispatch)=>{
 
     try{
        
         const res = await fetch(`http://localhost:8080/address/delete/${id}`,{
             method: "DELETE",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization":token
             },
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(DeleteAddress)
-       dispatch(getAddress())
+       dispatch(getAddress(token))
        
     }catch(err){
         console.log(err)
@@ -90,14 +93,15 @@ export const deleteAddress=(id)=>async(dispatch)=>{
 }
 
 
-export const updateAddress=(payload,id,)=>async(dispatch)=>{
+export const updateAddress=(payload,id,token)=>async(dispatch)=>{
 
     try{
         
         const res = await fetch(`http://localhost:8080/address/update/${id}`,{
             method: "PATCH",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization":token
                
             },
             body:JSON.stringify(payload)
@@ -105,7 +109,7 @@ export const updateAddress=(payload,id,)=>async(dispatch)=>{
         const res_1= await res.json();
        console.log(res_1)
        dispatch(UpdateAddres)
-       dispatch(getAddress())
+       dispatch(getAddress(token))
     }catch(err){
         console.log(err)
     }

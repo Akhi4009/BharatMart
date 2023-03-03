@@ -31,12 +31,13 @@ const AddressCard = () => {
   const navigate=useNavigate()
   
   const dispatch=useDispatch()
+  const token=JSON.parse(localStorage.getItem("token"))
 
  
 
 
   useEffect(()=>{
-    dispatch(getAddress())
+    dispatch(getAddress(token))
    
   },[])
 
@@ -46,7 +47,7 @@ console.log(Address)
  
 const handleSubmit=(e,data)=>{
   e.preventDefault()
- dispatch(updateAddress(data,Address[0]._id))
+ dispatch(updateAddress(data,Address[0]._id,token))
 
  onC()
  toast({
@@ -62,7 +63,7 @@ const handleSubmit=(e,data)=>{
  
   
   function handleDelete(id) {
-    dispatch(deleteAddress(id))
+    dispatch(deleteAddress(id,token))
     toast({
       title: 'Address Deleted Successfully',
       description: "Please add another address",

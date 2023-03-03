@@ -31,14 +31,15 @@ export const update=()=>{
 
 
 
-export const getCardData=()=>async (dispatch)=>{
+export const getCardData=(token)=>async (dispatch)=>{
    
     dispatch(CartgetRequestAction)
   try {
         const res = await fetch("http://localhost:8080/cart/", {
             method: "GET",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization":token
                 
             },
         });
@@ -51,46 +52,48 @@ export const getCardData=()=>async (dispatch)=>{
     }
 }
 
-export const deleteItemFromCart=(id)=>async(dispatch)=>{
+export const deleteItemFromCart=(id,token)=>async(dispatch)=>{
 
     try{
        
         const res = await fetch(`http://localhost:8080/cart/delete/${id}`,{
             method: "DELETE",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization":token
               
             },
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(DeleteItemCart)
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }
 }
 
-export const deleteAllItemFromCart=(id)=>async(dispatch)=>{
+export const deleteAllItemFromCart=(id,token)=>async(dispatch)=>{
 console.log(id)
     try{
        
         const res = await fetch(`http://localhost:8080/cart/deleteAll/${id}`,{
             method: "DELETE",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization":token
             }
         });
         const res_1= await res.json();
        
        dispatch(DeleteItemCart)
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }
 }
 
-export const addToCart=(payload)=>async(dispatch)=>{
+export const addToCart=(payload,token)=>async(dispatch)=>{
 
     try{
       
@@ -98,20 +101,21 @@ export const addToCart=(payload)=>async(dispatch)=>{
             method: "POST",
             headers: {
             
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization":token
             },
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
       
        dispatch(AddtoCart)
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }
 }
 
-export const updateCart=(payload,id)=>async(dispatch)=>{
+export const updateCart=(payload,id,token)=>async(dispatch)=>{
 
     try{
         
@@ -119,6 +123,7 @@ export const updateCart=(payload,id)=>async(dispatch)=>{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",
+                "authorization":token,
            
             },
             body:JSON.stringify(payload)
@@ -126,7 +131,7 @@ export const updateCart=(payload,id)=>async(dispatch)=>{
         const res_1= await res.json();
        console.log(res_1)
        dispatch(update)
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }
