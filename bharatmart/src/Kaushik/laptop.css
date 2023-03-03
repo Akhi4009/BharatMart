@@ -1,0 +1,26 @@
+.mainDiv{
+    display: flex;
+    width: 100%;
+   
+}
+.filter{
+    width: 25%;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: aliceblue;
+}
+.filter img{
+    margin: auto;
+}
+.sort{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 70px;
+    background-color: aliceblue;
+  
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
