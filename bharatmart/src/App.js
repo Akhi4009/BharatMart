@@ -1,4 +1,6 @@
-import Laptop from "./Kaushik/Laptop";
+
+
+
 
 
 
@@ -10,7 +12,7 @@ function App() {
 
  
 
-     <Laptop/>
+
 
 
     </div>
