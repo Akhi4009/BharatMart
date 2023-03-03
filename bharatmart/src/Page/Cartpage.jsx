@@ -1,5 +1,6 @@
 import React from 'react'
-import Cart from "../component/akhilesh/Cart/Cart"
+import CartBody from '../component/akhilesh/Cart/CartBody'
+
 
 
 
@@ -8,7 +9,7 @@ const Cartpage = () => {
   return (
     <>
 
-    <Cart/>
+  <CartBody/>
 
     </>
   )

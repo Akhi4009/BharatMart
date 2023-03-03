@@ -3,6 +3,7 @@ const cors=require("cors")
 const connection=require("./db")
 const productRouter=require("./routes/product.route")
 const cartRouter=require("./routes/Cart.routes")
+const addrssRouter=require("./routes/Address.route")
 require("dotenv").config()
 const app=express()
 app.use(cors())
@@ -13,6 +14,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/product",productRouter)
+app.use("/address",addressRouter)
 app.use("/cart",cartRouter)
 
 const port =process.env.port
