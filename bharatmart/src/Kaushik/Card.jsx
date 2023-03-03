@@ -18,6 +18,8 @@ import {
     GridItem,
     Divider,
     SimpleGrid,
+    Input,
+    Button
   } from "@chakra-ui/react";
 
 
@@ -89,32 +91,32 @@ if(length<10){
      <div ><p > <span style={{fontWeight:"bold",color:"green"}} >CALL</span> {pns_h}</p></div>
     <button onClick={toggleModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Contact Supplier</button>
     {modal && (
-        <div className="modal" >
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
+        <Box className="modal" >
+          <Box onClick={toggleModal} className="overlay"></Box>
+          <Box className="modal-content">
 
-            <h2 style={{fontWeight:"bold",color:"teal"}} >Contact Seller</h2>
-            <div style={{display:"flex"}}>
-            <div style={{width:"35%",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",margin:"10px"}}>
+            <Heading style={{fontWeight:"bold",color:"teal"}} >Contact Seller</Heading>
+            <Box style={{display:"flex"}}>
+            <Box style={{width:"35%",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",margin:"10px"}}>
             <img style={{width:"200px",height:"210px"}} src={image} alt="hh" />
             <p style={{color:"teal",margin:"5px",fontWeight:"bold"}}>Brand: {brand}</p>
             <p  style={{color:"gray",margin:"5px"}} >{title} {ram},{hard_drive_size}</p>
 
-            </div>
-           <div style={{justifyContent:"center",alignItems:"center",display:"flex",flexDirection:"column",margin:"10px",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
+            </Box>
+           <Box style={{justifyContent:"center",alignItems:"center",display:"flex",flexDirection:"column",margin:"10px",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
             <h2 style={{color:"#047a70",fontSize:"25px",fontWeight:"bold"}} >Enter Your Phone-Number </h2>
-           <input style={{width:"80%",border:"1px solid gray",height:"20px"}} type="number" placeholder="Enter Your Phone-Number" onChange={inputLength} />
+           <Input style={{width:"80%",border:"1px solid gray",height:"20px"}} type="number" placeholder="Enter Your Phone-Number" onChange={inputLength} />
            <br/>
-           <button onClick={submitModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Submit</button>
-           <p style={{color:"#047a70",margin:"5px"}} >You are just a click away to get quotes from sellers</p>
+           <Button onClick={submitModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Submit</Button>
+           <Text style={{color:"#047a70",margin:"5px"}} >You are just a click away to get quotes from sellers</Text>
 
-           </div>
+           </Box>
        
-           </div>
+           </Box>
      
             <img className="close-modal" onClick={toggleModal} src="https://www.freeiconspng.com/thumbs/close-icon/black-close-icon-3.png" style={{width:"36px",height:"36px"}} alt="" />
-          </div>
-        </div>
+          </Box>
+        </Box>
       )}
      
      <ToastContainer/>

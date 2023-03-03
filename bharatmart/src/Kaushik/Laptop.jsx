@@ -24,6 +24,8 @@ import {
     SimpleGrid,
     Button,
   } from "@chakra-ui/react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 
 
@@ -102,11 +104,14 @@ const Laptop = () => {
 
         return (
         <>
-            
+        
 
+         <Box>
+         <Navbar/>
          
-            <Heading style={{marginLeft:"10px",fontSize:"32px",fontWeight:"bold",color:"teal"}} >LAPTOP</Heading>
+           
             <Stack display={{  md: "none",lg:"none"}} justifyContent={'space-around'}>
+            
             <Box  className="sort" >
           
           <Select width={'55%'} style={{margin:"10px",outline:"none",border:"0px"}} onChange={HandleChange} > Sort by: All
@@ -235,7 +240,7 @@ const Laptop = () => {
             <Box width={{lg:'76%',md:"76%",sm:"90%"}}>
             <SimpleGrid 
             columns={{ base: 1, md: 2, lg: 3 }}
-            spacing={{ base: 7, md: 4 }}
+            spacing={{ base: 4, md: 4 }}
             >{laptop?.slice(0, visible).map((el) => {
                 return <Card key={el.id} {...el} />
             })}
@@ -245,7 +250,8 @@ const Laptop = () => {
             </Box>
             </Flex>
             <Button marginLeft={{base:"28%",lg:"45%",md:"40%"}} style={{background:"#2e3192",color:"white",width:"150px",fontWeight:"bold",borderRadius:"7px",border:"none",height:"30px",cursor:"pointer"}}  onClick={showMore} >Show More</Button>
-           
+            <Footer/>
+            </Box>  
 </>
 
 )
