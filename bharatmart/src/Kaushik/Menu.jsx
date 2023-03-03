@@ -10,13 +10,13 @@ import {
   } from "@chakra-ui/react";
   import { Link } from "react-router-dom";
   import React from "react";
-  import image1 from "../assets/MegaMenu/mm1.png";
-  import image2 from "../assets/MegaMenu/mm2.png";
-  import image3 from "../assets/MegaMenu/mm3.png";
-  import image4 from "../assets/MegaMenu/mm4.png";
-  import image5 from "../assets/MegaMenu/mm5.png";
-  import image6 from "../assets/MegaMenu/mm6.png";
-  const MegaMenu = () => {
+//   import image1 from "../assets/MegaMenu/mm1.png";
+//   import image2 from "../assets/MegaMenu/mm2.png";
+//   import image3 from "../assets/MegaMenu/mm3.png";
+//   import image4 from "../assets/MegaMenu/mm4.png";
+//   import image5 from "../assets/MegaMenu/mm5.png";
+//   import image6 from "../assets/MegaMenu/mm6.png";
+  const NavMenu = () => {
     return (
       <Box w={{ base: "100%", lg: "95%" }} margin="auto">
         <Grid
@@ -39,7 +39,7 @@ import {
                 <Image
                   p="0px 10px 0px 15px"
                   w={{ base: "45px", sm: "50px", md: "80px" }}
-                  src={image1}
+                  src={"https://png.pngtree.com/template/20191014/ourmid/pngtree-building-and-construction-logo-design-template-image_317780.jpg"}
                   h="100%"
                 />
                 <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
@@ -539,7 +539,7 @@ import {
                 <Image
                   p="0px 10px 0px 10px"
                   w={{ base: "45px", sm: "50px", md: "80px" }}
-                  src={image2}
+                  src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8k1hYrbzbZEyvy5DiuQUoio6O5wdh5tLQJUOXgIGDtQ&usqp=CAU&ec=48600112'}
                   h="100%"
                 />
                 <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
@@ -1010,7 +1010,7 @@ import {
                 <Image
                   p="0px 10px 0px 10px"
                   w={{ base: "45px", sm: "50px", md: "80px" }}
-                  src={image3}
+                  src={'https://w7.pngwing.com/pngs/108/279/png-transparent-blue-capsule-computer-icons-font-awesome-tablet-pharma-electronics-logo-pharmaceutical-drug-thumbnail.png'}
                 />
                 <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
                   Drugs & Pharma
@@ -1664,7 +1664,7 @@ import {
                 <Image
                   p="0px 10px 0px 10px"
                   w={{ base: "45px", sm: "50px", md: "80px" }}
-                  src={image4}
+                  src={'https://cdn2.vectorstock.com/i/1000x1000/00/66/letter-s-linked-cog-machine-industrial-logo-vector-34130066.jpg'}
                 />
                 <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
                   Industrial Machinery
@@ -2186,7 +2186,7 @@ import {
                 <Image
                   p="0px 10px 0px 10px"
                   w={{ base: "45px", sm: "50px", md: "80px" }}
-                  src={image5}
+                  src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMSYBGAlPlrNGbkvjVky1VHj78ovG-9h6aiLgeRa90nvZPQCEpgfB0d-OAh__tO03WpStuFVEGVZ4&usqp=CAU&ec=48600112'}
                 />
                 <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
                   Industrial Supplies
@@ -2708,7 +2708,7 @@ import {
                 <Image
                   p="0px 10px 0px 10px"
                   w={{ base: "45px", sm: "50px", md: "80px" }}
-                  src={image6}
+                  src={'https://media.istockphoto.com/id/1254633533/vector/agriculture-logo-icon-sign-or-symbol-leaf-farm-nature-ecology.jpg?s=612x612&w=0&k=20&c=zBBvYEnW3LmqX5C-QcvYtNr9z9WuE5p8y5K63ERspfE='}
                 />
                 <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
                   Food & Agriculture
@@ -3224,4 +3224,4 @@ import {
     );
   };
   
-  export default MegaMenu;
+  export default NavMenu;

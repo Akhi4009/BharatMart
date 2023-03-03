@@ -26,6 +26,7 @@ import {
   } from "@chakra-ui/react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import NavMenu from "./Menu";
 
 
 
