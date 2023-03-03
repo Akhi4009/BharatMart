@@ -11,6 +11,7 @@ const CartItem = ({ele}) => {
   const toast=useToast()
 
   const dispatch=useDispatch()
+  const token=JSON.parse(localStorage.getItem("token"))
   
  
 
@@ -18,7 +19,7 @@ const CartItem = ({ele}) => {
   const handleDelete=(id)=>{
     
 
-     dispatch(deleteItemFromCart(id))
+     dispatch(deleteItemFromCart(id,token))
      toast({
       title: 'Product deleted from the cart',
       description: "Thanku",
@@ -29,27 +30,14 @@ const CartItem = ({ele}) => {
     
   }
 
-  const MoveToWishlist=(id)=>{
-   
-
-     dispatch(deleteItemFromCart(id))
-     toast({
-      title: 'Product added in the Wishlist ',
-      description: "Thanku",
-      status: 'success',
-      duration: 1000,
-      isClosable: true,
-    })
-    onClose()
-    
-  }
+  
 
   const increaseQuantity=(data)=>{
        const id=data._id
          const payload={
           "quantity":(data.quantity+1)
          }
-         dispatch(updateCart(payload,id))
+         dispatch(updateCart(payload,id,token))
          toast({
           title: 'Quantity incresed by one',
           description: "Thanku",
@@ -66,7 +54,7 @@ const CartItem = ({ele}) => {
     const payload={
      "quantity":(data.quantity-1)
     }
-    dispatch(updateCart(payload,id))
+    dispatch(updateCart(payload,id,token))
     toast({
       title: 'Quantity decreased by one',
       description: "Thanku",
@@ -85,6 +73,7 @@ const CartItem = ({ele}) => {
   direction="row"
   overflow='hidden'
   variant='outline'
+  gap={5}
 >
   <Image
     objectFit='cover'
@@ -98,7 +87,7 @@ const CartItem = ({ele}) => {
     <CardBody>
       <Heading size='md'>{ele.brand}</Heading>
 
-      <Text py='2'>
+      <Text py='2' w="90%">
        {ele.title}
       </Text>
       <Text fontWeight="bold">₹{ele.price}/ pair

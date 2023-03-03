@@ -4,10 +4,11 @@ const CartModel=require("../models/cart.model")
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  // const user = req.body.user;
+ const user = req.body.user;
+ 
     try {
       
-      const CartData = await CartModel.find();
+      const CartData = await CartModel.find({user});
       res.send({CartData});
     } catch (error) {
       res.send({ message: "Cannot get cart products", error: error.message });
@@ -15,6 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/add", async (req, res) => {
+  console.log(req.body)
   try {
     const CartData = new CartModel(req.body);
     await CartData.save();

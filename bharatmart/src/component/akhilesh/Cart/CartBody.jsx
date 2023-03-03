@@ -1,11 +1,12 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect} from 'react'
 
-import { Box,HStack,Heading,Flex, Button,Stack} from '@chakra-ui/react'
+import { Box,Heading,Flex, Button,Stack} from '@chakra-ui/react'
 import CartItem from './CarTItem'
 
 import {useSelector,useDispatch} from "react-redux"
 import {  getCardData } from "../../../redux/Cart/action"
-import Address from '../../../Page/Address'
+import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -14,9 +15,11 @@ import Address from '../../../Page/Address'
 const CartBody = () => {
 
    const dispatch=useDispatch()
+   const token=JSON.parse(localStorage.getItem("token"))
+   const navigate=useNavigate()
   
   useEffect(()=>{
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     },[dispatch])
 
     const data=useSelector(store=>store.cartReducer.cart)
@@ -25,6 +28,11 @@ const CartBody = () => {
       const res=  Math.round(data&&data.reduce((a,c)=>a+ Number(c.price*c.quantity),0))
       return res
       
+      }
+
+      const handleClick=()=>{
+
+        navigate("/payment")
       }
 
  
@@ -36,15 +44,16 @@ const CartBody = () => {
     <Flex justifyContent="space-around" direction={{base:"column-reverse",lg:"row"}} gap={{base:"20px"}}  >
 
     
-   <Box> 
+   <Box m="auto"> 
    {data.CartData && data.CartData?.map(ele=>(
     <CartItem key={ele.id}  ele={ele}/>
  ))}
  </Box>
- <Stack boxShadow='sm' p='6' rounded='md' bg='gray' maxHeight={150} gap={2}>
+ <Stack boxShadow='sm' p='6' rounded='md' bg='gray' maxHeight={150} gap={2} w={{base:"50%",md:"auto"}} mx="auto"
+ position="sticky" top={100}>
     <Heading as="h3" size="md">Total Price: ₹{total}</Heading>
     
-    <Button>Proceed to pay</Button>
+    <Button onClick={handleClick}>Proceed to pay</Button>
    
     </Stack>
 

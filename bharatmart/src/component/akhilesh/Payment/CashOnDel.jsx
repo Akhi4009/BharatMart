@@ -4,6 +4,7 @@ import React,{useEffect, useState} from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { getCardData,deleteAllItemFromCart } from '../../../redux/Cart/action'
 import { useNavigate } from 'react-router-dom'
+import { getAddress } from '../../../redux/Address/action'
 
 
 const CashOnDel = () => {
@@ -13,21 +14,27 @@ const CashOnDel = () => {
   const bgc=res?"#00b5b7":"gray"
   const toast=useToast()
   const navigate=useNavigate()
+  const token=JSON.parse(localStorage.getItem("token"))
  
 
   const dispatch=useDispatch()
   useEffect(()=>{
-dispatch(getCardData())
-  },[dispatch,deleteAllItemFromCart])
+dispatch(getCardData(token))
+dispatch(getAddress(token))
+  },[dispatch])
 
   const data=useSelector(store=>store.cartReducer.cart)
   
+  const address=useSelector(store=>store.addressReducer.Address)
  
+  
+ let res3=data.CartData
+ let res4=address.length===0
 
   const handleOrder=(id)=>{
     
 
-dispatch(deleteAllItemFromCart(id))
+dispatch(deleteAllItemFromCart(id,token))
 setTimeout(()=>{
   navigate("/")
 },2000)
@@ -43,7 +50,7 @@ toast({
   }
 
  let res1=true
- if(data.CartData?.length>0){
+ if(data&&data.CartData?.length>0){
   res1=false
  }
 
@@ -79,7 +86,7 @@ toast({
    
     </HStack>
    </Box>
-   <Button w={{base:"100%",lg:"50%"}} isDisabled={!res||res1} bg={bgc} onClick={()=>handleOrder(data,data[0].user)}>Confirm Order</Button>
+   <Button w={{base:"100%",lg:"50%"}} isDisabled={!res||res1||res4} bg={bgc} onClick={()=>handleOrder(res3[0].user)}>Confirm Order</Button>
     </Stack>
   )
 }

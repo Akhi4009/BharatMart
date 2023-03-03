@@ -21,7 +21,7 @@ const Shome = () => {
    
    
     <Category/>
-    <Flex backgroundImage="https://shopping.imimg.com/style/mBnr.webp" p={30} justify="space-around" w="90%"  m="auto" direction={{base:"column",lg:"row"}}>
+    <Flex backgroundImage="https://shopping.imimg.com/style/mBnr.webp" p={30} justify="space-around" w="90%"  m="auto" direction={{base:"column",lg:"row"}} >
       <Flex direction="column"   gap={{base:"10px",lg:"20px"}} >
         <Heading   color="#97daff">
           Discover

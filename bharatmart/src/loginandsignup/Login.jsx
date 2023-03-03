@@ -4,150 +4,174 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Checkbox,
+  InputGroup,
+  HStack,
+  InputRightElement,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
-  useColorModeValue,
-  border,
+  useToast
+  
+  
 } from '@chakra-ui/react';
 
+import { Link } from 'react-router-dom'
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useState } from 'react'
 
 
+const login=async(data)=>{
 
-import axios from 'axios'
+  try {
+    const res = await fetch("http://localhost:8080/user/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+    const res_1 = await res.json();
+  
+    return res_1
 
-
-const initdata={
-  email:"",
-  password:"",
+  } catch (err) {
+    return console.log(err);
+  }
 }
 
-export default function Login ()  {
-  const [data,setdata]=useState(initdata)
- 
+const initdata={
 
- 
- 
+ email:"",
+ password:""
+
+}
+
+
+
+
+
   
+export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [data,setdata]=useState(initdata)
+  const navigate= useNavigate()
+  const toast=useToast()
+
 
   const handlechange=(e)=>{
     const {name,value}=e.target 
     setdata({
       ...data,
       [name]:value
+      
     })
+   
   }
-
   const handlesubmit=async(e)=>{
-    e.preventDefault() 
-   
-    loginuser(data)
-   }
- 
-  
-
-  const loginuser=async(data)=>{
-       return axios.post('https://periwinkle-sheep-hem.cyclic.app/user/login',{
-        email:data.email,
-        password:data.password
-       })
-       .then((res)=>{
-          return alert("login successfull well come to GLOW UP"),
-          localStorage.setItem("token",res.data.token)
-
-          
-       })
-       .catch((err)=>{
-        return alert(err.message,"wrong credetials")
-       })
-  }
+    e.preventDefault()
   console.log(data)
-  const {email,password}=data
-  
-  const divStyles = {
-    boxShadow: '1px 2px 9px #F4AAB9',
-    padding:"10px",
-    margin:"auto",
-   
-width:"700px",
-boxShadow: '1px 2px 9px #F4AAB9',
- 
-  padding:"20px",
+  login(data).then(res=>{
+    localStorage.setItem("token",JSON.stringify(res.token))
+    console.log(res)
+    toast({
+      title:`${res.message}`,
+      description: "Thanku",
+      status: 'success',
+      duration: 2000,
+      isClosable: true,
+    })
+    navigate("/carthome")
+  })
 
-padding:"50px"
-  } 
-   
-    
+ setdata(initdata)
+ 
+  }
   
+
+
+  const {email,password}=data
+
 
 
   return (
-    <div style={divStyles} >
+    <div>
     <Flex
-      minH={'100vh'}
-      align={'center'}
-      justify={'center'}
-     >
-       
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6} height={"400px"}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'} color={"rgb(162,211,104)"}>Please LOG IN </Heading>
-          <Text fontSize={'lg'} color={'black'}>
-            Well come to  <Link color={'rgb(162,211,104)'}>Bharat Mart</Link> 
+     
+      align='center'
+      justify='center'
+   maxW={{base:"100%",md:"50%"}}
+   m="auto"
+      
+   boxShadow='base' p='6' rounded='md' bg='white'
+      >
+      
+      <Stack justifyContent={"space-around"}  mx={'auto'} w="100%" p={10} bg={"none"}>
+        <Stack textAlign={"center"}  alignItem={'center'} m="auto" bg={"green"}  borderRadius={"5px"} height={"100px"}p={5}  >
+          <Heading fontSize={'sm'} color={"white"} textAlign={'center'}>
+            LOG IN
+          </Heading>
+          <Text fontSize={'sm'} color={'white'}>
+            Welcome to  Bharat Mart ✌️
           </Text>
         </Stack>
         <Box
-         
-        marginTop={"-100px"}
+        
           rounded={'lg'}
-         height={"400px"}
-          boxShadow={'lg'}
+      
+          boxShadow={'none'}
           p={8}>
-          <Stack spacing={4}>
-            <form action="" onSubmit={handlesubmit}>
-            <FormControl id="email">
-              <FormLabel color={"black"}>Email address</FormLabel>
-              <Input style={{color:"black",border:"2px solid black"}}  type="email" onChange={handlechange} 
- value={email} name="email"  />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel color={"black"}>Password</FormLabel>
-              <Input  style={{color:"black",border:"2px solid black"}} type="password"  onChange={handlechange} 
- value={password} name="password" />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>
-                <Checkbox color={"black"}>Remember me</Checkbox>
-                <Link color={'blue'}>Forgot password?</Link>
-              </Stack>
+          <Stack >
+          <form onSubmit={handlesubmit}>
+           
+               
+              
+            <FormControl id="email" isRequired>
+            <FormLabel color={"black"}>Email address</FormLabel>
+            <Input style={{ color:"black"}} type="email" onChange={handlechange} value={email} name="email" />
+          </FormControl>  
+          <FormControl id="password" isRequired>
+          <FormLabel color={"black"}>Password</FormLabel>
+          <InputGroup >
+            <Input style={{color:"black"}} type={showPassword ? 'text' : 'password'} onChange={handlechange} value={password} name="password" />
+            <InputRightElement h={'full'}>
+              <Button
+                variant={'ghost'}
+                onClick={() =>
+                  setShowPassword((showPassword) => !showPassword)
+                }>
+                {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+        </FormControl>   
+         <Stack spacing={5} pt={2}>
               <Input
             
+                loadingText="Submitting"
+                type={"submit"}
+                value={"Login"}
+                size="lg"
+                textAlign={"center"}
                 bg={'blue.400'}
-                color={'black'}
+                color={'white'}
                 _hover={{
                   bg: 'blue',
-                  
-                 
                 }}
-                type="submit"
-                value="Lets Go"
+               placeholder="Login" 
               />
             </Stack>
+           
             </form>
           </Stack>
         </Box>
       </Stack>
-    
+
     </Flex>
     </div>
+  
   );
 }
