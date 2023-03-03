@@ -10,41 +10,13 @@ import {
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import MegaMenu from "../component/MegaMenu";
+
 import { BsCheckLg } from "react-icons/bs";
-import banner1 from "../assets/homepage-banner1.jpg";
-import c1 from "../assets/homepage-assets/city1.jpg";
-import c2 from "../assets/homepage-assets/city2.jpg";
-import c3 from "../assets/homepage-assets/city3.jpg";
-import c4 from "../assets/homepage-assets/city4.jpg";
-import c5 from "../assets/homepage-assets/city5.jpg";
-import c6 from "../assets/homepage-assets/city6.jpg";
-import c7 from "../assets/homepage-assets/city7.jpg";
-import c8 from "../assets/homepage-assets/city8.jpg";
-import c9 from "../assets/homepage-assets/city9.jpg";
-import c10 from "../assets/homepage-assets/city10.jpg";
-import company1 from "../assets/homepage-assets/comp1.png";
-import company2 from "../assets/homepage-assets/comp2.png";
-import company3 from "../assets/homepage-assets/comp3.webp";
-import company4 from "../assets/homepage-assets/comp4.webp";
-import company5 from "../assets/homepage-assets/comp5.webp";
-import company6 from "../assets/homepage-assets/comp6.webp";
-import company7 from "../assets/homepage-assets/comp7.webp";
-import company8 from "../assets/homepage-assets/comp8.png";
-import company9 from "../assets/homepage-assets/comp9.webp";
-import company10 from "../assets/homepage-assets/comp10.webp";
-import company11 from "../assets/homepage-assets/comp11.png";
-import company12 from "../assets/homepage-assets/comp12.png";
-import carousel1 from "../assets/homepage-assets/carousel1.jpg";
-import carousel2 from "../assets/homepage-assets/carousel2.jpg";
-import carousel3 from "../assets/homepage-assets/carousel3.jpg";
-import software1 from "../assets/homepage-assets/software1.png";
-import software2 from "../assets/homepage-assets/software2.png";
-import app1 from "../assets/homepage-assets/app1.png";
-import app2 from "../assets/homepage-assets/app2.PNG";
-import Navbar from "../component/Navbar";
-import Footer from "../component/Footer";
+
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import NavMenu from "./Menu";
 
 const Home = () => {
   let [Carousel, setCarousel] = useState(false);
@@ -281,29 +253,30 @@ const Home = () => {
       d2: "Armoured Cable",
       d3: "Power Cable",
     },
+    {
+        img: "https://3.imimg.com/data3/GF/WP/GLADMIN-45894/industrial-compressor-125x125.jpg",
+        title: "Air Compressors",
+        d1: "Flood Lights",
+        d2: "Street Lights",
+        d3: "Panel Light",
+      },
+      {
+        img: "https://5.imimg.com/data5/PA/NP/GLADMIN-2/seawaterfiltrationsystem-125x125.jpg",
+        title: "Water Purification Plants",
+        d1: "Lithium Battery",
+        d2: "Inverter Batteries",
+        d3: "Electric Vehicle Battery",
+      },
+      {
+        img: "https://3.imimg.com/data3/YN/LI/MY-2/dsc_2766-125x125.jpg",
+        title: "Food Processing Plants",
+        d1: "Oil Free Air Compressor",
+        d2: "Reciprocating Compressors",
+        d3: "Refrigeration Compressors",
+      }
   ];
   let hide4 = [
-    {
-      img: "https://3.imimg.com/data3/GF/WP/GLADMIN-45894/industrial-compressor-125x125.jpg",
-      title: "Air Compressors",
-      d1: "Flood Lights",
-      d2: "Street Lights",
-      d3: "Panel Light",
-    },
-    {
-      img: "https://5.imimg.com/data5/PA/NP/GLADMIN-2/seawaterfiltrationsystem-125x125.jpg",
-      title: "Water Purification Plants",
-      d1: "Lithium Battery",
-      d2: "Inverter Batteries",
-      d3: "Electric Vehicle Battery",
-    },
-    {
-      img: "https://3.imimg.com/data3/YN/LI/MY-2/dsc_2766-125x125.jpg",
-      title: "Food Processing Plants",
-      d1: "Oil Free Air Compressor",
-      d2: "Reciprocating Compressors",
-      d3: "Refrigeration Compressors",
-    },
+    ,
   ];
   let state = [
     "Andhra Pradesh",
@@ -348,11 +321,12 @@ const Home = () => {
   // console.log('query:', query)
   return (
     <>
-      
+      <Navbar />
       <Box backgroundColor="#F3F3F3" align="center" marginTop="50px">
         {/* --------------------------------Banner & Search---------------------------------- */}
+        {/* https://utils.imimg.com/imsrchui/imgs/hpNewBanner1.jpg */}
         <Box
-          backgroundImage={banner1}
+          backgroundImage={'/banner1.jpg'}
           backgroundPosition="center"
           display="flex"
           justifyContent="center"
@@ -373,13 +347,13 @@ const Home = () => {
               color="#f9f9f9"
               fontSize={{ base: "12px", sm: "17", md: "22px" }}
             >
-              Search for products & find verified sellers near you
+              {/* Search for products & find verified sellers near you */}
             </Text>
             <Flex>
               <Select
                 fontSize={{ base: "10px", sm: "12px", md: "13px" }}
-                backgroundColor="#ececec"
-                color="#333"
+                backgroundColor="white"
+                color="black"
                 width={{ sm: "20%", md: "30%" }}
                 height={{ base: "20px", sm: "30px", md: "50px" }}
                 display={{ base: "none", sm: "flex" }}
@@ -392,6 +366,7 @@ const Home = () => {
                   </option>
                 ))}
               </Select>
+              <Box display={{sm:"none",md:"block",base:"none"}} >
               <Input
                 onChange={(e) => setQuery(e.target.value)}
                 paddingLeft="10px"
@@ -399,7 +374,8 @@ const Home = () => {
                 variant="unstyled"
                 placeholder=" Enter product/service name"
                 bg="white"
-                height={{ base: "20px", sm: "30px", md: "50px" }}
+                height={{ base: "19px", sm: "29px", md: "49px" }}
+                width={{ base: "320px", sm: "260px", md: "320px",lg:"360px" }}
                 borderRadius="0px"
               />
               <Link to={`/searchProduct/${query}`}>
@@ -414,22 +390,23 @@ const Home = () => {
                   margin="0"
                   height={{ base: "20px", sm: "30px", md: "50px" }}
                   position="relative"
-                  left="-4px"
+                color={'white'}
                   top="0"
                   cursor="pointer"
-                  width="142px"
+                  width={'100px'}
                   fontWeight="700"
                   text-indent="30px"
                 >
                   Search
                 </Button>
               </Link>
+              </Box>
             </Flex>
           </Box>
         </Box>
         {/* -------------------------------MegaMenu--------------------------------------- */}
-        <Box backgroundColor="white">
-          <MegaMenu />
+        <Box backgroundColor="gray">
+          <NavMenu />
         </Box>
         <hr />
         {/* -------------------------------Carousel------------------------------------------ */}
@@ -473,7 +450,7 @@ const Home = () => {
                   xl: "30px 20px 10px 20px",
                 }}
                 w={{ md: "100%", lg: "80%" }}
-                src={carousel3}
+                src={"https://utils.imimg.com/imsrchui/imgs/hpNewBanner1.jpg"}
               />
             </Box>
             <Box
@@ -484,10 +461,10 @@ const Home = () => {
             >
               <Box w="100%" p="20px">
                 {Carousel ? (
-                  <Image src={carousel1} />
+                  <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
                 ) : (
                   <Box position="relative">
-                    <Image src={carousel2} />
+                    <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
                     <Box
                       border="1px solid gray"
                       left="50%"
@@ -499,8 +476,8 @@ const Home = () => {
                       <Flex>
                         <Select
                           fontSize={{ base: "10px", sm: "12px", md: "13px" }}
-                          backgroundColor="#ececec"
-                          color="#333"
+                          backgroundColor="black"
+                          color="white"
                           width={{ sm: "20%", md: "30%" }}
                           h={{ base: "20px", md: "30px" }}
                           display={{ base: "none", sm: "flex" }}
@@ -509,6 +486,7 @@ const Home = () => {
                         >
                           {state?.map((el) => (
                             <option
+                            backgroundColor={'black'}
                               style={{ fontSize: "12px" }}
                               value="option2"
                             >
@@ -568,6 +546,7 @@ const Home = () => {
                         width="142px"
                         fontWeight="700"
                         text-indent="30px"
+                        color={'white'}
                       >
                         Search
                       </Button>
@@ -602,6 +581,7 @@ const Home = () => {
               <Box
                 position="relative"
                 backgroundImage="https://hm.imimg.com/imhome_gifs/building-construction.jpg"
+
               >
                 <a href="/">
                   <Button
@@ -646,19 +626,21 @@ const Home = () => {
                   boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
                 >
                   <Box w="50%">
-                    <Image src={el.img} />
+
+                    <Image width={'100%'} height={'100%'} src={el.img} />
                   </Box>
                   <Box p="0px 10px" align="start">
                     <Text
                       fontSize={{ base: "10px", sm: "12px", md: "13px" }}
                       pb="5px"
                       fontWeight="700"
+                      color={'black'}
                     >
                       {el.title}
                     </Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
                   </Box>
                 </Flex>
               ))}
@@ -674,15 +656,16 @@ const Home = () => {
                   </Box>
                   <Box p="0px 10px" align="start">
                     <Text
+                     color={'black'}
                       fontSize={{ base: "10px", sm: "12px", md: "13px" }}
                       pb="5px"
                       fontWeight="700"
                     >
                       {el.title}
                     </Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
                   </Box>
                 </Flex>
               ))}
@@ -764,12 +747,13 @@ const Home = () => {
                       fontSize={{ base: "10px", sm: "12px", md: "13px" }}
                       pb="5px"
                       fontWeight="700"
+                      color={'black'}
                     >
                       {el.title}
                     </Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
                   </Box>
                 </Flex>
               ))}
@@ -789,16 +773,17 @@ const Home = () => {
                         fontSize={{ base: "10px", sm: "12px", md: "13px" }}
                         pb="5px"
                         fontWeight="700"
+                        color={'black'}
                       >
                         {el.title}
                       </Text>
-                      <Text fontSize={{ base: "10px", sm: "12px" }}>
+                      <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>
                         {el.d1}
                       </Text>
-                      <Text fontSize={{ base: "10px", sm: "12px" }}>
+                      <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>
                         {el.d2}
                       </Text>
-                      <Text fontSize={{ base: "10px", sm: "12px" }}>
+                      <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>
                         {el.d3}
                       </Text>
                     </Box>
@@ -832,11 +817,12 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c1}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
+               color={'black'}
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
               >
@@ -850,11 +836,12 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c2}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
+               color={'black'}
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
               >
@@ -868,11 +855,12 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c3}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
+               color={'black'}
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
               >
@@ -886,11 +874,12 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c4}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
+               color={'black'}
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
               >
@@ -904,11 +893,12 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c5}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
+               color={'black'}
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
               >
@@ -924,11 +914,12 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c6}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
+               color={'black'}
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
               >
@@ -942,13 +933,14 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c7}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
+                color={'black'}
               >
                 Pune
               </Text>
@@ -960,13 +952,14 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c8}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
+                color={'black'}
               >
                 Surat
               </Text>
@@ -978,13 +971,14 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c9}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
+                color={'black'}
               >
                 Jaipur
               </Text>
@@ -996,13 +990,14 @@ const Home = () => {
               cursor="pointer"
             >
               <Image
-                src={c10}
+                src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
                 pb="10px"
                 w={{ base: "40px", sm: "60px", md: "80px" }}
               />
               <Text
                 fontSize={{ base: "12px", sm: "15px", md: "18px" }}
                 textAlign="center"
+                color={'black'}
               >
                 Hyderabad
               </Text>
@@ -1084,16 +1079,17 @@ const Home = () => {
                         fontSize={{ base: "10px", sm: "12px", md: "13px" }}
                         pb="5px"
                         fontWeight="700"
+                        color={'black'}
                       >
                         {el.title}
                       </Text>
-                      <Text fontSize={{ base: "10px", sm: "12px" }}>
+                      <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>
                         {el.d1}
                       </Text>
-                      <Text fontSize={{ base: "10px", sm: "12px" }}>
+                      <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>
                         {el.d2}
                       </Text>
-                      <Text fontSize={{ base: "10px", sm: "12px" }}>
+                      <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>
                         {el.d3}
                       </Text>
                       <Text fontSize={{ base: "10px", sm: "12px" }}>
@@ -1130,7 +1126,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company1} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="20%"
@@ -1139,7 +1135,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company2} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="20%"
@@ -1148,7 +1144,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company3} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="20%"
@@ -1157,7 +1153,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company4} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="20%"
@@ -1166,7 +1162,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company5} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="20%"
@@ -1175,7 +1171,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company6} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
           </Flex>
           <Flex justifyContent="space-around">
@@ -1186,7 +1182,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company7} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="12%"
@@ -1195,7 +1191,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company8} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="12%"
@@ -1204,7 +1200,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company9} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="12%"
@@ -1213,7 +1209,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company10} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="20%"
@@ -1222,7 +1218,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company12} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
             <Box
               w="20%"
@@ -1231,7 +1227,7 @@ const Home = () => {
               p={{ base: "10px", md: "20px 25px" }}
               alignItems="center"
             >
-              <Image src={company11} />
+              <Image src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             </Box>
           </Flex>
         </Box>
@@ -1310,12 +1306,13 @@ const Home = () => {
                       fontSize={{ base: "10px", sm: "12px", md: "13px" }}
                       pb="5px"
                       fontWeight="700"
+                      color={'black'}
                     >
                       {el.title}
                     </Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
-                    <Text fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d1}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d2}</Text>
+                    <Text  color={'black'} fontSize={{ base: "10px", sm: "12px" }}>{el.d3}</Text>
                   </Box>
                 </Flex>
               ))}
@@ -1354,7 +1351,7 @@ const Home = () => {
           w="96%"
         >
           <Box p={{ base: "10px", md: "50px" }} align="start">
-            <Image w={{ base: "20%", md: "50%" }} src={software1} />
+            <Image w={{ base: "20%", md: "50%" }} src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
             <Heading
               p={{ base: "10px 0px 0px 0px", md: "20px 0px 0px 0px" }}
               fontSize={{ base: "18px", sm: "20px", md: "30px" }}
@@ -1418,7 +1415,7 @@ const Home = () => {
             <Image
               display={{ base: "none", lg: "flex" }}
               w="50%"
-              src={software2}
+              src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"}
             />
           </Box>
         </Flex>
@@ -1431,7 +1428,7 @@ const Home = () => {
           w="96%"
         >
           <Box p={{ base: "10px", md: "50px 0px 0px 0px" }}>
-            <Image w="70%" src={app1} />
+            <Image w="70%" src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
           </Box>
           <Box p={{ base: "10px", md: "100px 0px 50px 0px" }} align="start">
             <Heading
@@ -1485,13 +1482,13 @@ const Home = () => {
             >
               We will send you a link, open it on your phone to download the App
             </Text>
-            <Image w={{ base: "20%", md: "50%" }} src={app2} />
+            <Image w={{ base: "20%", md: "50%" }} src={"https://5.imimg.com/data5/GLADMIN/Default/2022/4/SX/OM/DM/32732628/suitcase-courier-service-250x250.jpeg"} />
           </Box>
         </Flex>
 
         {/* ------------------------------------------------------------------------- */}
       </Box>
-      
+      <Footer />
     </>
   );
 };

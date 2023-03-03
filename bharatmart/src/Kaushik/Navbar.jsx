@@ -53,6 +53,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { getItem, setItem } from "../utility/localStorage";
 
 const Navbar = () => {
+    const [query, setQuery] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [Registarion, setRegistarion] = useState(false);
   const [admin, setAdmin] = useState(false);
@@ -466,6 +467,42 @@ const Navbar = () => {
 
         {isOpen ? (
           <Box alignItems={'center'} pb={4} display={{ md: "none" }}>
+            {/* //------------------------------- */}
+            <Input
+                onChange={(e) => setQuery(e.target.value)}
+                paddingLeft="10px"
+                fontSize={{ base: "12px", sm: "13px", md: "15px" }}
+                variant="unstyled"
+                placeholder=" Enter product/service name"
+                bg="white"
+                height={{ base: "20px", sm: "30px", md: "50px" }}
+                width={{ base: "140px", sm: "140px", md: "160px" }}
+                borderRadius="0px"
+                marginLeft={'26%'}
+              />
+              <Link to={`/searchProduct/${query}`}>
+                <Button
+                  fontSize={{ base: "12px", sm: "13px", md: "15px" }}
+                  borderRadius="0px"
+                  fontFamily="arial"
+                  background="-webkit-gradient(linear,left top,left bottom,from(#058b80),to(#02625a))"
+                  colorScheme="#fff"
+                  p="5px 22px"
+                  border="none"
+                  margin="0"
+                  height={{ base: "20px", sm: "30px", md: "50px" }}
+                  position="relative"
+                
+                  top="0"
+                  cursor="pointer"
+                  width={'60px'}
+                  fontWeight="700"
+                  text-indent="30px"
+                >
+                  Search
+                </Button>
+              </Link>
+            {/* --------------------------- */}
             <Stack alignItems={'center'} as={"nav"} spacing={4}>
               {/* <Text cursor="pointer" fontSize="12px" color="white">
                 Sign In
