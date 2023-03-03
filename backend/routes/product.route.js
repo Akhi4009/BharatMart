@@ -43,9 +43,20 @@ const router=express.Router()
     
     
    router.get("/",async(req,res)=>{
+    
     try{
       const product= await ProductModel.find()
       res.send({result:product.length,product})
+    }catch(err){
+      res.send({"eroor":err.message})
+    }
+   })
+   router.get("/singleproduct/:id",async(req,res)=>{
+    const id=req.params.id
+    
+    try{
+      const product= await ProductModel.findOne({"_id":id})
+      res.send({product})
     }catch(err){
       res.send({"eroor":err.message})
     }

@@ -3,6 +3,9 @@ const cors=require("cors")
 const connection=require("./db")
 const productRouter=require("./routes/product.route")
 const cartRouter=require("./routes/Cart.routes")
+const addressRouter=require("./routes/Address.route")
+const userRouter=require("./routes/User.routes")
+const authorization=require("./middleware/auth.middleware")
 require("dotenv").config()
 const app=express()
 app.use(cors())
@@ -11,9 +14,10 @@ app.use(express.json())
 app.get("/",(req,res)=>{
     res.send("Welcome")
 })
-
+app.use("/user",userRouter)
 app.use("/product",productRouter)
-app.use("/cart",cartRouter)
+app.use("/address",authorization,addressRouter)
+app.use("/cart",authorization,cartRouter)
 
 const port =process.env.port
 

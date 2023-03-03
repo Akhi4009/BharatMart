@@ -1,11 +1,11 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { UserModel } = require("../Model/User.model");
+const { UserModel } = require("../models/User.model");
 
-const UserRouter = express.Router();
+const router = express.Router();
 
-UserRouter.get("/",async(req,res)=>{
+router.get("/",async(req,res)=>{
   try {
     const Users = await UserModel.find();
     res.send(Users);
@@ -14,7 +14,8 @@ UserRouter.get("/",async(req,res)=>{
   }
 })
 
-UserRouter.post("/register", async (req, res) => {
+router.post("/register", async (req, res) => {
+  
   const { name, username, email, password, phone, gender } = req.body;
   try {
     bcrypt.hash(password, 5, async (err, hash) => {
@@ -41,7 +42,7 @@ UserRouter.post("/register", async (req, res) => {
   }
 });
 
-UserRouter.post("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     const {email,password}=req.body;
     try {
       const User = await UserModel.find({email});
@@ -62,4 +63,4 @@ UserRouter.post("/login", async (req, res) => {
     }
 });
 
-module.exports={UserRouter};
+module.exports=router
