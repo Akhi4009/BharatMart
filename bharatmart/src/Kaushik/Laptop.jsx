@@ -28,7 +28,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import NavMenu from "./Menu";
 
-
+import {Link} from "react-router-dom"
 
 const Laptop = () => {
     const [laptop, setLaptop] = useState([])
@@ -106,19 +106,21 @@ const Laptop = () => {
         return (
         <>
         
-
+       
          <Box>
+            <Box>
          <Navbar/>
-         
+         </Box>
+         <Heading>Laptop</Heading>
            
             <Stack display={{  md: "none",lg:"none"}} justifyContent={'space-around'}>
             
             <Box  className="sort" >
           
-          <Select width={'55%'} style={{margin:"10px",outline:"none",border:"0px"}} onChange={HandleChange} > Sort by: All
-              <option  value="all"><Text fontSize={"11px"}>Sort by: All</Text></option>
-              <option  value="asc"><Text fontSize={"5px"}>Price:Ascending</Text></option>
-              <option value="dsc"><Text fontSize={"5px"}>Price:Descending</Text></option>
+          <Select   width={'40%'} style={{margin:"10px",outline:"none",border:"0px"}} onChange={HandleChange} > Sort by: All
+              <option  value="all"><Text fontSize={"5px"}>Sort by: All</Text></option>
+              <option   value="asc"><Text fontSize={"5px"}>Price:Ascending</Text></option>
+              <option   value="dsc"><Text fontSize={"5px"}>Price:Descending</Text></option>
           </Select>
       </Box> 
       <Flex  alignItems={'center'} width={'95%'}  justifyContent={'space-around'}>

@@ -18,11 +18,10 @@ import axios from "axios";
 import { Link as RouterLink } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 
-export default function ProductDetails() {
+
+export default function Details() {
   let token = JSON.parse(sessionStorage.getItem("token"));
   const [product, setProduct] = useState({});
   const [count, setCount] = useState(1);
@@ -83,7 +82,7 @@ export default function ProductDetails() {
   const { image, title, price, price2, brand } = product;
   return (
     <>
-      <Navbar />
+    
       <Box>
         <Box id="detail">
           <Flex
@@ -157,7 +156,7 @@ export default function ProductDetails() {
           </Flex>
         </Box>
       </Box>
-      <Footer/>
+     
     </>
   );
 }

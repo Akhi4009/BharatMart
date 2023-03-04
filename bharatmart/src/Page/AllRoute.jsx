@@ -9,6 +9,10 @@ import LadiesPage from './LadiesPage'
 import MensPage from './MensPage'
 import FootwearPage from './FootwearPage'
 import Industrialpage from './Industrialpage'
+import Home from '../Kaushik/Home'
+import Laptop from '../Kaushik/Laptop'
+import Details from '../Kaushik/Details'
+
 
 
  
@@ -17,8 +21,11 @@ const AllRoute = () => {
     <>
   <Routes>
   
- 
-  <Route path="/" element={<SignupCard/>}/>
+  <Route path="/" element={<Home/>}/>
+  <Route path="/laptop" element={<Laptop/>}/>
+  <Route path="/laptop/:id" element={<Details/>}/>
+  
+  <Route path="/signup" element={<SignupCard/>}/>
   <Route path="/login" element={<Login/>}/>
   <Route path="/carthome" element={<Shome/>}/>
   <Route path="/cart" element={<Cartpage/>}/>

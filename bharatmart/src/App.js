@@ -1,3 +1,4 @@
+import AllRoute from "./Page/AllRoute";
 
 
 
@@ -10,7 +11,7 @@ function App() {
     <div className="App">
    
 
-
+<AllRoute/>
 
  
 

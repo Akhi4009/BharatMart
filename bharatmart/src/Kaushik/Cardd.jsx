@@ -1,24 +1,11 @@
 import React,{useState} from "react";
 
-import "./Model.css";
-import {
-    Grid,
-    Box,
-    Flex,
-    Stack,
-    Text,
-    Heading,
-    Image,
-    Button,
-    UnorderedList,
-    ListItem,
-    useToast,
-    OrderedList,
-  } from "@chakra-ui/react";
+
+
 
 import {ToastContainer,toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Link} from "react-router-dom"
+
 const Card=({id,image,title,name,brand,price,ram,hard_drive_size,pns_h})=>{
     const [modal, setModal] = useState(false);
     const [length, setLength] = useState(0);
@@ -81,37 +68,36 @@ if(length<10){
     <p>&#x20b9;{price} </p>
     {/* <p>{ram}</p>
     <p>{hard_drive_size}</p> */}
-    <p>Call {pns_h}</p>
-    <Link to={'/laptop/:id'}>
-    <button onClick={toggleModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Contact Supplier</button></Link>
-    {/* {modal && (
-        <div className="modal"  >
-          <div  onClick={toggleModal} className="overlay"></div>
-          <div width={'200px'} className="modal-content">
+     <div ><p > <span style={{fontWeight:"bold",color:"green"}} >CALL</span> {pns_h}</p></div>
+    <button onClick={toggleModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Contact Supplier</button>
+    {modal && (
+        <div className="modal" >
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content">
 
-            <h2 id="model-heading" >Contact Seller</h2>
-            <Flex spacing={4} id="model-div" >
-            <div id="prodDetail" >
-            <img width={"200px"} height={'150px'} id="model-img"  src={image} alt="hh" />
-            <p color="black" id="model-brand" >Brand: {brand}</p>
-            <p color="black" id="model-detail"  >{title} {ram},{hard_drive_size}</p>
+            <h2 style={{fontWeight:"bold",color:"teal"}} >Contact Seller</h2>
+            <div style={{display:"flex"}}>
+            <div style={{width:"35%",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",margin:"10px"}}>
+            <img style={{width:"200px",height:"210px"}} src={image} alt="hh" />
+            <p style={{color:"teal",margin:"5px",fontWeight:"bold"}}>Brand: {brand}</p>
+            <p  style={{color:"gray",margin:"5px"}} >{title} {ram},{hard_drive_size}</p>
 
             </div>
-           <div id="input-details">
-            <h2 id="input_head"  >Enter Your Phone-Number </h2>
-           <input  width={'60px'} color="red" id="input-box"  type="number" placeholder="Enter Your Phone-Number" onChange={inputLength} />
+           <div style={{justifyContent:"center",alignItems:"center",display:"flex",flexDirection:"column",margin:"10px",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
+            <h2 style={{color:"#047a70",fontSize:"25px",fontWeight:"bold"}} >Enter Your Phone-Number </h2>
+           <input style={{width:"80%",border:"1px solid gray",height:"20px"}} type="number" placeholder="Enter Your Phone-Number" onChange={inputLength} />
            <br/>
-           <button id="input-btn" onClick={submitModal}  >Submit</button>
-           <p id="input-quote" style={{color:"#047a70",margin:"5px"}} >You are just a click away to get quotes from sellers</p>
+           <button onClick={submitModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Submit</button>
+           <p style={{color:"#047a70",margin:"5px"}} >You are just a click away to get quotes from sellers</p>
 
            </div>
        
-           </Flex>
+           </div>
      
             <img className="close-modal" onClick={toggleModal} src="https://www.freeiconspng.com/thumbs/close-icon/black-close-icon-3.png" style={{width:"36px",height:"36px"}} alt="" />
           </div>
         </div>
-      )} */}
+      )}
      
      <ToastContainer/>
     </div>

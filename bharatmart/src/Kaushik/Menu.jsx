@@ -599,13 +599,14 @@ import {
                       Projector
                     </MenuItem>
                   </Link>
-                  <Link to="/Projector">
+                  <Link to="/laptop">
                     <MenuItem
+                    fontWeight={'bold'}
                       fontStyle="Arial,Helvetica,sans-serif"
                       fontSize={{ base: "9px", sm: "10px", md: "12px" }}
                       p={{ base: "3px 0px 3px 5px", md: "4px 0px 4px 10px" }}
                     >
-                      Computer Printers
+                      Laptops
                     </MenuItem>
                   </Link>
                   <Link to="/Projector">

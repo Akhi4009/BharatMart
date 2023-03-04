@@ -90,12 +90,13 @@ const Navbar = () => {
 //   };
   return (
     <>
-      <Box alignItems={"center"}  zIndex={5} backgroundColor="#2E3192" >
+      <Box width={"100%"} top={'0px'} position={'fixed'} alignItems={"center"}  zIndex={5} backgroundColor="#2E3192" >
         <Flex h={14} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={{ base: 3, md: 8 }} alignItems={"center"}>
             <Link to="/">
               <Box w={["120px", "140px", "160px", "200px"]}>
-                <Image marginLeft={'10px'} height={{ base:"50px",sm: "50px", md: "50px", lg: "50px" }} src={"https://i.ibb.co/Zc5Y127/logo-bharatmart2.png"} />
+              <Link to={'/'} > 
+                <Image marginLeft={'10px'} height={{ base:"50px",sm: "50px", md: "50px", lg: "50px" }} src={"https://i.ibb.co/Zc5Y127/logo-bharatmart2.png"} /></Link>
               </Box>
             </Link>
             {/* <Input placeholder='search' display={{base:"none", md:"flex"}} /> */}
@@ -106,6 +107,7 @@ const Navbar = () => {
               w="100%"
               display={{ base: "none", md: "flex" }}
             >
+                <Link to={'/ladies'} >
               <Box align="center">
                 <AiOutlineTag
                   fontSize="20px"
@@ -116,12 +118,15 @@ const Navbar = () => {
                   Shopping
                 </Text>
               </Box>
+              </Link>
+              <Link to={"./laptop"} >
               <Box align="center">
                 <BsShop fontSize="20px" color="#dbdbdb" cursor="pointer" />
                 <Text cursor="pointer" fontSize="12px" color="white">
-                  Sell
+                  Product
                 </Text>
               </Box>
+              </Link>
               <Box align="center">
                 <BsQuestionCircle
                   fontSize="20px"
@@ -142,315 +147,21 @@ const Navbar = () => {
                   Message
                 </Text>
               </Box>
-              {/* <Popover>
-                <PopoverTrigger>
-                  <Box align="center">
+              <Link to={'/login'}>
+              <Box align="center">
                     <BiUserCircle
                       fontSize="20px"
                       color="#dbdbdb"
                       cursor="pointer"
                     />
+                    
                     <Text cursor="pointer" fontSize="12px" color="white">
                       Sign In
                     </Text>
+
                   </Box>
-                </PopoverTrigger>
-                <PopoverContent
-                  border="none"
-                  borderRadius="0px"
-                  boxShadow="rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
-                >
-                  <PopoverArrow />
-                  <PopoverCloseButton />
-                  <PopoverHeader>
-                    <Box align="center">
-                    
-                    
-                      {!admin && (
-                        <Modal
-                          closeOnOverlayClick={false}
-                          isOpen={isOpen}
-                          onClose={onClose}
-                        >
-                          <ModalOverlay />
-                          <ModalContent>
-                            <ModalCloseButton />
-                            <ModalBody textAlign={"center"} pb={6}>
-                              {!Registarion && (
-                                <Flex mt={20} flexDirection={"column"} gap={2}>
-                                  <Heading color={"#333"}>Login</Heading>
-                                  <Input
-                                    placeholder="User name..."
-                                    name="email"
-                                    onChange={handlechenge}
-                                  ></Input>
-                                  <Input
-                                    placeholder="Password..."
-                                    type={"password"}
-                                    name="password"
-                                    onChange={handlechenge}
-                                  ></Input>
-                                  <Button
-                                    
-                                    fontFamily="arial"
-                                    background="-webkit-gradient(linear,left top,left bottom,from(#058b80),to(#02625a))"
-                                    colorScheme="#fff"
-                                    mr={3}
-                                  >
-                                   
-                                  </Button>
-                                  <Link onClick={() => setRegistarion(true)}>
-                                    Don't have an account?{" "}
-                                    <span style={{ color: "blue" }}>
-                                      Create your new account
-                                    </span>
-                                  </Link>
-                                </Flex>
-                              )}
-
-                              {Registarion && (
-                                <Flex flexDirection={"column"} gap={2}>
-                                  <Heading color={"#333"}>Registration</Heading>
-                                  <Input
-                                    placeholder="First name..."
-                                    name="firstname"
-                                    onChange={handlechenge}
-                                  ></Input>
-                                  <Input
-                                    placeholder="Lastst name..."
-                                    name="laststname"
-                                    onChange={handlechenge}
-                                  ></Input>
-                                  <Input
-                                    placeholder="Email..."
-                                    name="email"
-                                    onChange={handlechenge}
-                                  ></Input>
-                                  <Input
-                                    placeholder="Password..."
-                                    name="password"
-                                    type={"password"}
-                                    onChange={handlechenge}
-                                  ></Input>
-
-                                  <Input
-                                    placeholder="conform Password..."
-                                    type={"password"}
-                                    onChange={(e) => setConform(e.target.value)}
-                                  ></Input>
-                                  <p style={{ color: "red" }}>
-                                    {cred.password !== undefined &&
-                                    conform !== cred.password
-                                      ? "password is not matching"
-                                      : ""}
-                                  </p>
-                                  <Button
-                                   
-                                    fontFamily="arial"
-                                    background="-webkit-gradient(linear,left top,left bottom,from(#058b80),to(#02625a))"
-                                    colorScheme="#fff"
-                                    mr={3}
-                                  >
-                                   
-                                  </Button>
-                                  <Link
-                                    onClick={() => setRegistarion(!Registarion)}
-                                  >
-                                    {" "}
-                                    already have an account
-                                  </Link>
-                                </Flex>
-                              )}
-                            </ModalBody>
-                          </ModalContent>
-                        </Modal>
-                      )}
-                      <Text fontSize={{ base: "11px", md: "12px" }}>
-                        New to TRADEMART{" "}
-                        <span style={{ color: "blue" }}>Join Now</span>
-                      </Text>
-                    </Box>
-                  </PopoverHeader>
-                  <PopoverBody>
-                    <Box>
-                      <Flex m={{ base: "5px 0px", md: "10px 0px" }} gap="5px">
-                        <AiOutlineHome fontSize="20px" color="gray" />
-                        <Text
-                          display="flex"
-                          fontSize={{ base: "12px", md: "14px" }}
-                          cursor="pointer"
-                          fontWeight="500"
-                        >
-                          Home
-                        </Text>
-                      </Flex>
-                      <Flex m={{ base: "5px 0px", md: "10px 0px" }} gap="5px">
-                        <MdSendToMobile fontSize="20px" color="gray" />
-                        <Text
-                          display="flex"
-                          fontSize={{ base: "12px", md: "14px" }}
-                          cursor="pointer"
-                          fontWeight="500"
-                        >
-                          Post Your Requirement
-                        </Text>
-                      </Flex>
-                      <Flex m={{ base: "5px 0px", md: "10px 0px" }} gap="5px">
-                        <ImUserCheck fontSize="20px" color="gray" />
-                        <Text
-                          display="flex"
-                          fontSize={{ base: "12px", md: "14px" }}
-                          cursor="pointer"
-                          fontWeight="500"
-                        >
-                          Verified
-                        </Text>
-                      </Flex>
-                      <Flex m={{ base: "5px 0px", md: "10px 0px" }} gap="5px">
-                        <BiMessageDetail fontSize="20px" color="gray" />
-                        <Text
-                          display="flex"
-                          fontSize={{ base: "12px", md: "14px" }}
-                          cursor="pointer"
-                          fontWeight="500"
-                        >
-                          My Orders
-                        </Text>
-                      </Flex>
-                      <Flex m={{ base: "5px 0px", md: "10px 0px" }} gap="5px">
-                        <RiCustomerServiceFill fontSize="20px" color="gray" />
-                        <Text
-                          display="flex"
-                          fontSize={{ base: "12px", md: "14px" }}
-                          cursor="pointer"
-                          fontWeight="500"
-                        >
-                          Products/Services Directory
-                        </Text>
-                      </Flex>
-                      <Flex m={{ base: "5px 0px", md: "10px 0px" }} gap="5px">
-                        <AiOutlineSetting fontSize="20px" color="gray" />
-                        <Text
-                          display="flex"
-                          fontSize={{ base: "12px", md: "14px" }}
-                          cursor="pointer"
-                          fontWeight="500"
-                        >
-                          Settings
-                        </Text>
-                      </Flex>
-                      <Flex m={{ base: "5px 0px", md: "10px 0px" }} gap="5px">
-                        <TiThSmall fontSize="20px" color="gray" />
-                        <Text
-                          display="flex"
-                          fontSize={{ base: "12px", md: "14px" }}
-                          cursor="pointer"
-                          fontWeight="500"
-                        >
-                          Recent Activity
-                        </Text>
-                      </Flex>
-                    </Box>
-                  </PopoverBody>
-                  <PopoverFooter>
-                    <Box>
-                      <Box p="10px 0px">
-                        <Text
-                          fontSize={{ base: "12px", md: "14px" }}
-                          fontWeight="500"
-                        >
-                          Pay with TRADEMART
-                        </Text>
-                        <Text
-                          fontSize={{ base: "12px", md: "14px" }}
-                          color="gray"
-                        >
-                          Secure & hassle-free payments
-                        </Text>
-                      </Box>
-                      <hr />
-                      <Box p="10px 0px">
-                        <Text
-                          fontSize={{ base: "12px", md: "14px" }}
-                          fontWeight="500"
-                        >
-                          Ship with TRADEMART
-                        </Text>
-                        <Text
-                          fontSize={{ base: "12px", md: "14px" }}
-                          color="gray"
-                        >
-                          Easy booking & transport
-                        </Text>
-                      </Box>
-                      <hr />
-                      <Box m="15px 0px">
-                        <Text
-                          fontSize={{ base: "12px", md: "14px" }}
-                          fontWeight="500"
-                          display="flex"
-                        >
-                          <BiMobile fontSize="20px" color="gray" /> Download APP
-                        </Text>
-                      </Box>
-                      <hr />
-                    </Box>
-                    <Box align="center">
-                      <Button
-                        onClick={() => {
-                          setAdmin(!admin);
-                          onOpen();
-                        }}
-                        m="5px 0px"
-                        fontSize={{ base: "12px", md: "14px" }}
-                        fontFamily="arial"
-                        background="-webkit-gradient(linear,left top,left bottom,from(#058b80),to(#02625a))"
-                        colorScheme="#fff"
-                        size="sm"
-                      >
-                        Admin Login
-                      </Button>
-                      {admin && (
-                        <Modal
-                          closeOnOverlayClick={false}
-                          isOpen={isOpen}
-                          onClose={onClose}
-                        >
-                          <ModalOverlay />
-                          <ModalContent>
-                            <ModalCloseButton />
-                            <ModalBody textAlign={"center"} pb={6}>
-                              <Flex mt={20} flexDirection={"column"} gap={2}>
-                                <Heading color={"#333"}>Login</Heading>
-                                <Input
-                                  placeholder="User name..."
-                                  name="email"
-                                  onChange={handlechenge}
-                                ></Input>
-                                <Input
-                                  placeholder="Password..."
-                                  type={"password"}
-                                  name="password"
-                                  onChange={handlechenge}
-                                ></Input>
-                                <Button
-                                 
-                                  fontFamily="arial"
-                                  background="-webkit-gradient(linear,left top,left bottom,from(#058b80),to(#02625a))"
-                                  colorScheme="#fff"
-                                  mr={3}
-                                >
-                                
-                                </Button>
-                              </Flex>
-                            </ModalBody>
-                          </ModalContent>
-                        </Modal>
-                      )}
-                    </Box>
-                  </PopoverFooter>
-                </PopoverContent>
-              </Popover> */}
+                  </Link>
+              
             </Box>
             <IconButton
               size={"md"}
@@ -516,9 +227,16 @@ const Navbar = () => {
               <Text cursor="pointer" fontSize="12px" color="white">
                 Help
               </Text>
+              <Link to={"./laptop"} >
               <Text cursor="pointer" fontSize="12px" color="white">
-                Sell
+                Product
               </Text>
+              </Link>
+              <Link to={"/login"} >
+              <Text cursor="pointer" fontSize="12px" color="white">
+                Login
+              </Text>
+              </Link>
             </Stack>
           </Box>
         ) : null}
