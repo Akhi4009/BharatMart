@@ -20,6 +20,8 @@ import { Link } from 'react-router-dom'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../Kaushik/Navbar';
+import Footer from '../Kaushik/Footer';
 
 
 const initdata={
@@ -92,6 +94,8 @@ export default function SignupCard() {
 
 
   return (
+    <>
+    <Navbar/>
     <div>
     <Flex
      
@@ -181,8 +185,8 @@ export default function SignupCard() {
               />
             </Stack>
             <Stack pt={6}>
-              <Text align={'center'} color={"black"} marginTop={"0px"}>
-                Already a user? <Link color={'red'}>Login</Link>
+              <Text align={'center'} color={"black"} marginTop={"0px"} fontWeight="bold">
+                Already a user? <Link to="/login">Login</Link>
               </Text>
             </Stack>
             </form>
@@ -192,6 +196,8 @@ export default function SignupCard() {
 
     </Flex>
     </div>
+    <Footer/>
+    </>
   
   );
 }

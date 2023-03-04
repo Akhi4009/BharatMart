@@ -19,13 +19,15 @@ Icon,
 import axios from "axios";
 
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {GrFormAdd} from "react-icons/gr"
 import {BiMinus} from "react-icons/bi"
 
 
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/Cart/action";
+import Snavbar from "../component/akhilesh/Shopping/Snavbar";
+import Footer from "../Kaushik/Footer";
 
 
 
@@ -132,34 +134,41 @@ const dispatch=useDispatch()
 
   return (
     <>
+    <Snavbar/>
     <Box>
+    <Link to="/shopping"><Text m={5}>Home</Text> </Link>
     <Box id="detail">
       <Flex
-        direction={{ base: "column", md: "row" }}
-        justifyContent={"space-around"}
+        direction={{ base: "column", lg: "row" }}
+       
+        alignItems={"center"}
       >
-        <Box w={{ base: "100%", md: "50%" }} id="prodImage" p={5}>
+        <Box w={{ base: "80%", md: "50%" }} id="prodImage" p={5}>
           <Image
-            w={{ base: "60%", md: "80%" }}
+            w={{ base: "40%", md: "60%" }}
             margin="auto"
             src={image}
             alt={brand}
+            alignItems="center"
+            maxH="100Vh"
           />
         </Box>
 
-        <Box
-          w={{ base: "100%", md: "50%" }}
+        <Stack
+          w={{ base: "80%%", md: "50%" }}
           margin={"auto"}
           p={5}
-          id="proDetail"
+          id="proDetail" 
+          alignItems="center"
+          
         >
-          <Heading marginTop="15px">{title}</Heading>
+          <Heading marginTop="15px" as="h2" size="md">{title}</Heading>
           <Text fontWeight="bold" color="gray" marginTop="15px">
             {brand}
           </Text>
           <Box id="price">
-            <Flex>
-              <Text style={{ color: "tomato" }}>${price}</Text>
+            <Flex gap={2}>
+              <Text style={{ color: "tomato" }} fontWeight="bold">${price}</Text>
               <Text
                 textDecoration="line-through"
                 marginLeft="5px"
@@ -192,28 +201,28 @@ const dispatch=useDispatch()
              Add to cart
             </Button>
           </Box>
-        </Box>
-      </Flex>
-      <Flex>
-        <Box w={{ base: "100%", md: "50%" }} p={5}>
+          <Box w={{ base: "100%", md: "50%" }} p={5}>
           <Text fontWeight="bold">Product Details</Text>
           <UnorderedList>
             <ListItem>
-              Transparent mesh and synthetic upper in a lifestyle sneaker
-              style with a round toe
+            Care Instructions: Hand Wash Only
             </ListItem>
-            <ListItem>Lace-up closure</ListItem>
-            <ListItem>Heel pull tab</ListItem>
-            <ListItem>Collapsible heel</ListItem>
-            <ListItem>Padded tongue for increased comfort</ListItem>
+            <ListItem>Fit Type: Stretch</ListItem>
+            <ListItem>Cotton Lycra Stretchable Blouse With Full Stretchable and Comfortable Look</ListItem>
+            <ListItem>Dobby Stretchable fabric / Neck Style: Round Neck</ListItem>
+            <ListItem>Care Instructions: Hand Wash Only</ListItem>
             <ListItem>Soft lining with cushioned insole</ListItem>
             <ListItem>Lifted platform foam midsole</ListItem>
-            <ListItem>Durable traction outsole</ListItem>
+            
           </UnorderedList>
         </Box>
+         
+        </Stack>
       </Flex>
+      
     </Box>
   </Box>
+  <Footer/>
       
     </>
   );

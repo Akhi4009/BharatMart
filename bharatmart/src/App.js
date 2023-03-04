@@ -2,7 +2,10 @@
 
 
 
-
+import Home from "./Kaushik/Home";
+import ProductDetails from "./Kaushik/ProductDetails";
+import AllRoute from "./Page/AllRoute";
+import Shome from "./Page/Shome";
 
 
 function App() {
@@ -10,7 +13,7 @@ function App() {
     <div className="App">
    
 
-
+<AllRoute/>
 
  
 

@@ -6,6 +6,7 @@ import AddressCard from "../component/akhilesh/Address/AddressCard"
 import { useDispatch,useSelector } from 'react-redux'
 import { getAddress,addAddress } from '../redux/Address/action'
 import { useNavigate,Navigate } from 'react-router-dom'
+import Snavbar from '../component/akhilesh/Shopping/Snavbar'
 
 
 
@@ -60,7 +61,7 @@ const Address = () => {
 
   return (
     <>
-   
+  
  
     <Box w="100%" m="auto">
     {res?<AddressForm handleSubmit={handleSubmit} initialAddress={initialAddress} />:<AddressCard/>}
