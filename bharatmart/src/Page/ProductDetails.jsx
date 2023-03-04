@@ -46,7 +46,7 @@ const dispatch=useDispatch()
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/product/singleproduct/${id}`)
+      .get(`https://victorious-top-hat-crab.cyclic.app/product/singleproduct/${id}`)
       .then((res) =>{
         console.log(res.data.product)
         setProduct(res.data.product)

@@ -35,7 +35,7 @@ export const getProductData=()=>async (dispatch)=>{
    
     dispatch(ProductgetRequestAction)
   try {
-        const res = await fetch("http://localhost:8080/product/", {
+        const res = await fetch("https://victorious-top-hat-crab.cyclic.app/product/", {
             method: "GET",
             headers: {
                 "Content-type": "application/json"
@@ -55,7 +55,7 @@ export const deleteItemFromProduct=(id)=>async(dispatch)=>{
 
     try{
        
-        const res = await fetch(`http://localhost:8080/product/delete/${id}`,{
+        const res = await fetch(`https://victorious-top-hat-crab.cyclic.app/product/delete/${id}`,{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json"
@@ -77,7 +77,7 @@ export const addToProduct=(payload)=>async(dispatch)=>{
 
     try{
       
-        const res = await fetch(`http://localhost:8080/product/cart`,{
+        const res = await fetch(`https://victorious-top-hat-crab.cyclic.app/product/cart`,{
             method: "POST",
             headers: {
             
@@ -98,7 +98,7 @@ export const updateProduct=(payload,id)=>async(dispatch)=>{
 
     try{
         
-        const res = await fetch(`http://localhost:8080/product/update/${id}`,{
+        const res = await fetch(`https://victorious-top-hat-crab.cyclic.app/product/update/${id}`,{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",

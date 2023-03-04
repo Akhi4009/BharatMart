@@ -37,7 +37,7 @@ gender:""
 
 const signup=async (data)=>{
   try {
-    const res = await fetch("http://localhost:8080/user/register", {
+    const res = await fetch("https://victorious-top-hat-crab.cyclic.app/user/register", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
