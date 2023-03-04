@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import AllRoute from "./Page/AllRoute";
 
 

@@ -82,8 +82,8 @@ if(length<10){
     {/* <p>{ram}</p>
     <p>{hard_drive_size}</p> */}
     <p>Call {pns_h}</p>
-    <Link to={'/laptop/:id'}>
-    <button onClick={toggleModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Contact Supplier</button></Link>
+    <Link to={`/laptop/${id}`}>
+    <button onClick={toggleModal} style={{background:"#047a70",borderRadius:"5px",border:"none",height:"30px",width:"140px",color:"white",fontWeight:"bold",cursor:"pointer",margin:"5px"}} >Get Details</button></Link>
     {/* {modal && (
         <div className="modal"  >
           <div  onClick={toggleModal} className="overlay"></div>

@@ -12,21 +12,31 @@ import {
   ListItem,
   useToast,
   OrderedList,
+  Input
 } from "@chakra-ui/react";
+import {ToastContainer,toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import axios from "axios";
 import { Link as RouterLink } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 
 
 export default function Details() {
-  let token = JSON.parse(sessionStorage.getItem("token"));
+    const [modal, setModal] = useState(false);
+    const [length, setLength] = useState(0);
   const [product, setProduct] = useState({});
   const [count, setCount] = useState(1);
   const { id } = useParams();
   const toast = useToast();
+  const inputLength=()=>{
+    setLength(length+1)
+    console.log(length)
+}
 
   useEffect(() => {
     axios
@@ -38,52 +48,42 @@ export default function Details() {
       .catch((err) => console.log(err));
   }, [id]);
 
-//   function buy() {
-//     console.log(product);
-//     axios
-//       .post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, product, {
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: token,
-//         },
-//       })
-//       .then((res) => {
-//         if (res.data.message == `jwt must be provided`) {
-//           toast({
-//             title: "User not Logged In",
-//             status: "error",
-//             duration: 4000,
-//             isClosable: true,
-//           });
-//           return;
-//         }
-
-//         toast({
-//           title: "Item Added",
-//           description: "Item is Added To Cart.",
-//           status: "success",
-//           duration: 3000,
-//           isClosable: true,
-//         });
-
-//         console.log(res);
-//       })
-//       .catch((err) => {
-//         toast({
-//           title: "Error",
-//           description: "Something Went Wrong",
-//           status: "error",
-//           duration: 3000,
-//           isClosable: true,
-//         });
-//         console.log(err);
-//       });
-//   }
-  const { image, title, price, price2, brand } = product;
+  const submitModal = () => {
+    toast({
+        title: 'Thank You',
+        description: "Supplier Will Contact you shortly.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+        
+    // if(length<10){
+    //     toast({
+    //         title: '',
+    //         description: "Type 10 Digits of Phone-Number.",
+    //         status: 'warning',
+    //         duration: 9000,
+    //         isClosable: true,
+    //       })
+    //       setLength(0)
+    // }else if(length===10){
+    //     toast({
+    //         title: 'Thank You',
+    //         description: "Supplier Will Contact you shortly.",
+    //         status: 'success',
+    //         duration: 9000,
+    //         isClosable: true,
+    //       })
+    // }
+    
+               
+            
+         };
+  const { image, title, price, brand } = product;
   return (
     <>
-    
-      <Box>
+    <Navbar/>
+      <Box marginTop={'100px'}>
         <Box id="detail">
           <Flex
             direction={{ base: "column", md: "row" }}
@@ -91,7 +91,7 @@ export default function Details() {
           >
             <Box w={{ base: "100%", md: "50%" }} id="prodImage" p={5}>
               <Image
-                w={{ base: "60%", md: "80%" }}
+                w={{ base: "50%", md: "70%" }}
                 margin="auto"
                 src={image}
                 alt={brand}
@@ -110,53 +110,39 @@ export default function Details() {
               </Text>
               <Box id="price">
                 <Flex>
-                  <Text style={{ color: "tomato" }}>${price}</Text>
-                  <Text
-                    textDecoration="line-through"
-                    marginLeft="5px"
-                    id="price2"
-                  >
-                    ${price2}
-                  </Text>
+                  <Text style={{ color: "green" }}> &#x20b9;{price}</Text>
+              
                 </Flex>
               </Box>
 
               <Box id="btns">
-                <Text fontWeight="bold">Ship To Address</Text>
-                <Text>Receive in 4-7 business days with standard</Text>
-
+                
+                <Heading fontSize={"20px"} marginTop={"10px"} color={'gray'} >Tell us what you Need</Heading>
+                <Input onChange={inputLength} color={'white'} type={'number'} marginTop={"10px"}  placeholder="Enter your Phone-Number" />
                 <Button
+                onClick={submitModal }
+                marginTop={"10px"} 
                   colorScheme="green"
                   color="white"
                   mt={5}
                 //   onClick={() => buy()}
                 >
-                  Call Supplier
+                  Submit
                 </Button>
+                <Text color={'gray'} marginTop={"10px"} >Supplier Will Contact Youu shortly</Text>
+
+              
               </Box>
+              
             </Box>
           </Flex>
           <Flex>
-            <Box w={{ base: "100%", md: "50%" }} p={5}>
-              <Text fontWeight="bold">Product Details</Text>
-              <UnorderedList>
-                <ListItem>
-                  Transparent mesh and synthetic upper in a lifestyle sneaker
-                  style with a round toe
-                </ListItem>
-                <ListItem>Lace-up closure</ListItem>
-                <ListItem>Heel pull tab</ListItem>
-                <ListItem>Collapsible heel</ListItem>
-                <ListItem>Padded tongue for increased comfort</ListItem>
-                <ListItem>Soft lining with cushioned insole</ListItem>
-                <ListItem>Lifted platform foam midsole</ListItem>
-                <ListItem>Durable traction outsole</ListItem>
-              </UnorderedList>
-            </Box>
+           
           </Flex>
         </Box>
       </Box>
-     
+      <ToastContainer/>
+     <Footer/>
     </>
   );
 }
