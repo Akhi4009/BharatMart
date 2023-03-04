@@ -12,12 +12,15 @@ import {
   ListItem,
   useToast,
   OrderedList,
+  Input
 } from "@chakra-ui/react";
 
 import axios from "axios";
 import { Link as RouterLink } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 
 
@@ -82,8 +85,8 @@ export default function Details() {
   const { image, title, price, price2, brand } = product;
   return (
     <>
-    
-      <Box>
+    <Navbar/>
+      <Box marginTop={'100px'}>
         <Box id="detail">
           <Flex
             direction={{ base: "column", md: "row" }}
@@ -91,7 +94,7 @@ export default function Details() {
           >
             <Box w={{ base: "100%", md: "50%" }} id="prodImage" p={5}>
               <Image
-                w={{ base: "60%", md: "80%" }}
+                w={{ base: "50%", md: "70%" }}
                 margin="auto"
                 src={image}
                 alt={brand}
@@ -110,53 +113,36 @@ export default function Details() {
               </Text>
               <Box id="price">
                 <Flex>
-                  <Text style={{ color: "tomato" }}>${price}</Text>
-                  <Text
-                    textDecoration="line-through"
-                    marginLeft="5px"
-                    id="price2"
-                  >
-                    ${price2}
-                  </Text>
+                  <Text style={{ color: "green" }}> &#x20b9;{price}</Text>
+              
                 </Flex>
               </Box>
 
               <Box id="btns">
-                <Text fontWeight="bold">Ship To Address</Text>
-                <Text>Receive in 4-7 business days with standard</Text>
-
+                
+                <Heading fontSize={"20px"} marginTop={"10px"} color={'gray'} >Tell us what you Need</Heading>
+                <Input color={'white'} type={'number'} marginTop={"10px"}  placeholder="Enter your Phone-Number" />
                 <Button
+                marginTop={"10px"} 
                   colorScheme="green"
                   color="white"
                   mt={5}
                 //   onClick={() => buy()}
                 >
-                  Call Supplier
+                  Submit
                 </Button>
+                <Text color={'gray'} marginTop={"10px"} >Supplier Will Contact Youu shortly</Text>
+
+              
               </Box>
             </Box>
           </Flex>
           <Flex>
-            <Box w={{ base: "100%", md: "50%" }} p={5}>
-              <Text fontWeight="bold">Product Details</Text>
-              <UnorderedList>
-                <ListItem>
-                  Transparent mesh and synthetic upper in a lifestyle sneaker
-                  style with a round toe
-                </ListItem>
-                <ListItem>Lace-up closure</ListItem>
-                <ListItem>Heel pull tab</ListItem>
-                <ListItem>Collapsible heel</ListItem>
-                <ListItem>Padded tongue for increased comfort</ListItem>
-                <ListItem>Soft lining with cushioned insole</ListItem>
-                <ListItem>Lifted platform foam midsole</ListItem>
-                <ListItem>Durable traction outsole</ListItem>
-              </UnorderedList>
-            </Box>
+           
           </Flex>
         </Box>
       </Box>
-     
+     <Footer/>
     </>
   );
 }
