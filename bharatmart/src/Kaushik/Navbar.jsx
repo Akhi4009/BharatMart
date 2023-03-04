@@ -107,7 +107,7 @@ const Navbar = () => {
               w="100%"
               display={{ base: "none", md: "flex" }}
             >
-                <Link to={'/ladies'} >
+                <Link to={'/shopping'} >
               <Box align="center">
                 <AiOutlineTag
                   fontSize="20px"

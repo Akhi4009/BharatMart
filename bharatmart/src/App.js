@@ -2,9 +2,6 @@ import AllRoute from "./Page/AllRoute";
 
 
 
-
-
-
 function App() {
   return (
     <div className="App">

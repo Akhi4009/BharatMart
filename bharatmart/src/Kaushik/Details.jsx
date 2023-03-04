@@ -14,6 +14,8 @@ import {
   OrderedList,
   Input
 } from "@chakra-ui/react";
+import {ToastContainer,toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import axios from "axios";
 import { Link as RouterLink } from "react-router-dom";
@@ -25,11 +27,16 @@ import Navbar from "./Navbar";
 
 
 export default function Details() {
-  let token = JSON.parse(sessionStorage.getItem("token"));
+    const [modal, setModal] = useState(false);
+    const [length, setLength] = useState(0);
   const [product, setProduct] = useState({});
   const [count, setCount] = useState(1);
   const { id } = useParams();
   const toast = useToast();
+  const inputLength=()=>{
+    setLength(length+1)
+    console.log(length)
+}
 
   useEffect(() => {
     axios
@@ -41,48 +48,38 @@ export default function Details() {
       .catch((err) => console.log(err));
   }, [id]);
 
-//   function buy() {
-//     console.log(product);
-//     axios
-//       .post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, product, {
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: token,
-//         },
-//       })
-//       .then((res) => {
-//         if (res.data.message == `jwt must be provided`) {
-//           toast({
-//             title: "User not Logged In",
-//             status: "error",
-//             duration: 4000,
-//             isClosable: true,
-//           });
-//           return;
-//         }
-
-//         toast({
-//           title: "Item Added",
-//           description: "Item is Added To Cart.",
-//           status: "success",
-//           duration: 3000,
-//           isClosable: true,
-//         });
-
-//         console.log(res);
-//       })
-//       .catch((err) => {
-//         toast({
-//           title: "Error",
-//           description: "Something Went Wrong",
-//           status: "error",
-//           duration: 3000,
-//           isClosable: true,
-//         });
-//         console.log(err);
-//       });
-//   }
-  const { image, title, price, price2, brand } = product;
+  const submitModal = () => {
+    toast({
+        title: 'Thank You',
+        description: "Supplier Will Contact you shortly.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+        
+    // if(length<10){
+    //     toast({
+    //         title: '',
+    //         description: "Type 10 Digits of Phone-Number.",
+    //         status: 'warning',
+    //         duration: 9000,
+    //         isClosable: true,
+    //       })
+    //       setLength(0)
+    // }else if(length===10){
+    //     toast({
+    //         title: 'Thank You',
+    //         description: "Supplier Will Contact you shortly.",
+    //         status: 'success',
+    //         duration: 9000,
+    //         isClosable: true,
+    //       })
+    // }
+    
+               
+            
+         };
+  const { image, title, price, brand } = product;
   return (
     <>
     <Navbar/>
@@ -121,8 +118,9 @@ export default function Details() {
               <Box id="btns">
                 
                 <Heading fontSize={"20px"} marginTop={"10px"} color={'gray'} >Tell us what you Need</Heading>
-                <Input color={'white'} type={'number'} marginTop={"10px"}  placeholder="Enter your Phone-Number" />
+                <Input onChange={inputLength} color={'white'} type={'number'} marginTop={"10px"}  placeholder="Enter your Phone-Number" />
                 <Button
+                onClick={submitModal }
                 marginTop={"10px"} 
                   colorScheme="green"
                   color="white"
@@ -135,6 +133,7 @@ export default function Details() {
 
               
               </Box>
+              
             </Box>
           </Flex>
           <Flex>
@@ -142,6 +141,7 @@ export default function Details() {
           </Flex>
         </Box>
       </Box>
+      <ToastContainer/>
      <Footer/>
     </>
   );
