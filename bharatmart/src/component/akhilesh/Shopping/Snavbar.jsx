@@ -29,7 +29,7 @@ let res=(cart.CartData?.length)
   return (
     <Flex justifyContent="space-evenly" h="100px"  mb={10} pos="sticky" top={0} zIndex={3} 
    bg="gray.100" >
-     <Link to="/shopping">
+     <Link to="/">
      <Box w="100%"> 
           <Image   src="https://i.ibb.co/Zc5Y127/logo-bharatmart2.png" alt="logo-bharatmart2" w="150px"  />
       </Box>

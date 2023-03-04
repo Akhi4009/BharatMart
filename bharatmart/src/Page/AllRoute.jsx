@@ -10,6 +10,10 @@ import MensPage from './MensPage'
 import FootwearPage from './FootwearPage'
 import Industrialpage from './Industrialpage'
 import Home from '../Kaushik/Home'
+import PrivateRoute from './PrivateRoute'
+import ProductDetails from './ProductDetails'
+import Laptop from '../Kaushik/Laptop'
+import Details from '../Kaushik/Details'
 
 
  
@@ -30,6 +34,9 @@ const AllRoute = () => {
   <Route path="/mens" element={<MensPage/>}/>
   <Route path="/footwear" element={<FootwearPage/>}/>
   <Route path="/industrial" element={<Industrialpage/>}/>
+  <Route path="/laptop" element={<Laptop/>}/>
+  <Route path="/laptop/:id" element={<Details/>}/>
+
   
  
   </Routes>

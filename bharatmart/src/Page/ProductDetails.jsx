@@ -55,47 +55,7 @@ const dispatch=useDispatch()
       .catch((err) => console.log(err));
   }, [id]);
 
-  // function buy() {
-  //   console.log(product);
-  //   axios
-  //     .post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, product, {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: token,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       if (res.data.message == `jwt must be provided`) {
-  //         toast({
-  //           title: "User not Logged In",
-  //           status: "error",
-  //           duration: 4000,
-  //           isClosable: true,
-  //         });
-  //         return;
-  //       }
-
-  //       toast({
-  //         title: "Item Added",
-  //         description: "Item is Added To Cart.",
-  //         status: "success",
-  //         duration: 3000,
-  //         isClosable: true,
-  //       });
-
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       toast({
-  //         title: "Error",
-  //         description: "Something Went Wrong",
-  //         status: "error",
-  //         duration: 3000,
-  //         isClosable: true,
-  //       });
-  //       console.log(err);
-  //     });
-  // }
+  
 
   let {brand,image,title,price,quantity,category}=product
   const price1=+price+200
