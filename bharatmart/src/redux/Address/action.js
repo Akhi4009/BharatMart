@@ -31,7 +31,7 @@ export const UpdateAddres=()=>{
 export const getAddress=(token)=>async (dispatch)=>{
     dispatch(AddressgetRequestAction)
   try {
-        const res = await fetch("http://localhost:8080/address", {
+        const res = await fetch("https://victorious-top-hat-crab.cyclic.app/address", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -52,7 +52,7 @@ export const addAddress=(payload,token)=>async(dispatch)=>{
 
     try{
       
-        const res = await fetch(`http://localhost:8080/address/add`,{
+        const res = await fetch(`https://victorious-top-hat-crab.cyclic.app/address/add`,{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -75,7 +75,7 @@ export const deleteAddress=(id,token)=>async(dispatch)=>{
 
     try{
        
-        const res = await fetch(`http://localhost:8080/address/delete/${id}`,{
+        const res = await fetch(`https://victorious-top-hat-crab.cyclic.app/address/delete/${id}`,{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -97,7 +97,7 @@ export const updateAddress=(payload,id,token)=>async(dispatch)=>{
 
     try{
         
-        const res = await fetch(`http://localhost:8080/address/update/${id}`,{
+        const res = await fetch(`https://victorious-top-hat-crab.cyclic.app/address/update/${id}`,{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",

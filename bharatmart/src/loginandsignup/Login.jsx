@@ -28,7 +28,7 @@ import Footer from '../Kaushik/Footer';
 const login=async(data)=>{
 
   try {
-    const res = await fetch("http://localhost:8080/user/login", {
+    const res = await fetch("https://victorious-top-hat-crab.cyclic.app/user/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
