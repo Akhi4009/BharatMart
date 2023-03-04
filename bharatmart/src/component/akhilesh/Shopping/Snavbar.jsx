@@ -29,7 +29,7 @@ let res=(cart.CartData?.length)
   return (
     <Flex justifyContent="space-evenly" h="100px"  mb={10} pos="sticky" top={0} zIndex={3} 
    bg="gray.100" >
-     <Link to="/">
+     <Link to="/shopping">
      <Box w="100%"> 
           <Image   src="https://i.ibb.co/Zc5Y127/logo-bharatmart2.png" alt="logo-bharatmart2" w="150px"  />
       </Box>
@@ -48,11 +48,7 @@ let res=(cart.CartData?.length)
 <Box ><Button h="30px" p={5} backgroundColor="#2e3192" color="white">Cart {res>0?res:""}</Button></Box>
 </Link>
 
-<a href='https://63ce3dcac2544213842550ce--cozy-fudge-0aa21e.netlify.app/' >
-  <Box>
-  <Button h="30px" p={5} backgroundColor="teal" color="white">Admin</Button>
-  </Box>
-</a>
+
 
 </Flex>
  </Flex>

@@ -3,6 +3,7 @@ import axios from 'axios'
 import React,{useEffect, useState} from 'react'
 import {useSelector,useDispatch} from "react-redux"
 import { addToCart } from '../../redux/Cart/action'
+import { Link,useNavigate } from 'react-router-dom'
 
 
 
@@ -12,10 +13,11 @@ import { addToCart } from '../../redux/Cart/action'
 
 
 const ProductItem = (ele) => {
-  const{image,title,price,brand}=ele
+  const{image,title,price,brand,_id}=ele
+  const navigate=useNavigate()
 
   const token=JSON.parse(localStorage.getItem("token"))
-  console.log(token)
+ 
 
 
  const dispatch=useDispatch()
@@ -36,13 +38,15 @@ toast({
 })
   }
 
+
  
 
  
   return (
     <>
-    <Card maxW='sm' h={450}>
-    <CardBody>
+    <Card maxW='sm' h={450} pb={20}>
+    <Link to={`/shopping/${_id}`}>
+    <CardBody  >
       <Image
         src={image}
         alt={title}
@@ -62,15 +66,14 @@ toast({
         ₹{price}
         </Text>
       </Stack>
-      <Divider  />
-   
-       <HStack alignItems="center">
-       <Button mx="auto" mt={5} variant='solid' colorScheme='blue' onClick={()=>handleAdd(ele)}>
+  </CardBody>
+  </Link>
+
+    <HStack alignItems="center" >
+       <Button mx="auto" variant='solid' colorScheme='blue' onClick={()=>handleAdd(ele)} >
           Add to cart
         </Button>
        </HStack>
-        
-    </CardBody>
     
       
   </Card>

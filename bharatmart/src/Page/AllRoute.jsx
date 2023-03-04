@@ -10,9 +10,6 @@ import MensPage from './MensPage'
 import FootwearPage from './FootwearPage'
 import Industrialpage from './Industrialpage'
 import Home from '../Kaushik/Home'
-import Laptop from '../Kaushik/Laptop'
-import Details from '../Kaushik/Details'
-
 
 
  
@@ -22,14 +19,13 @@ const AllRoute = () => {
   <Routes>
   
   <Route path="/" element={<Home/>}/>
-  <Route path="/laptop" element={<Laptop/>}/>
-  <Route path="/laptop/:id" element={<Details/>}/>
-  
+
   <Route path="/signup" element={<SignupCard/>}/>
   <Route path="/login" element={<Login/>}/>
-  <Route path="/carthome" element={<Shome/>}/>
-  <Route path="/cart" element={<Cartpage/>}/>
-  <Route path="/payment" element={<Payment/>}/>
+  <Route path="/shopping" element={<PrivateRoute><Shome/></PrivateRoute>}/>
+  <Route path="/shopping/:id" element={<ProductDetails/>}/>
+  <Route path="/cart" element={<PrivateRoute><Cartpage/></PrivateRoute>}/>
+  <Route path="/payment" element={<PrivateRoute><Payment/></PrivateRoute>}/>
   <Route path="/ladies" element={<LadiesPage/>}/>
   <Route path="/mens" element={<MensPage/>}/>
   <Route path="/footwear" element={<FootwearPage/>}/>

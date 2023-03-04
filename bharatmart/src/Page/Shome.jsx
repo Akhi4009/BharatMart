@@ -7,6 +7,8 @@ import Mens from '../component/akhilesh/Mens/Mens'
 import Footwear from '../component/akhilesh/Footwear/Footwear'
 import Industrial from '../component/akhilesh/Industrial/Industrial'
 import Category from '../component/akhilesh/Shopping/category'
+import Snavbar from '../component/akhilesh/Shopping/Snavbar'
+import Footer from '../Kaushik/Footer'
 
 
 
@@ -19,7 +21,7 @@ const Shome = () => {
   return (
     <>
    
-   
+   <Snavbar/>
     <Category/>
     <Flex backgroundImage="https://shopping.imimg.com/style/mBnr.webp" p={30} justify="space-around" w="90%"  m="auto" direction={{base:"column",lg:"row"}} >
       <Flex direction="column"   gap={{base:"10px",lg:"20px"}} >
@@ -46,7 +48,7 @@ const Shome = () => {
     <Heading size="lg" as="h1" mt={20}>Industrial Chemical </Heading>
     <Industrial/>
     </Stack>
-    
+    <Footer/>
 
     </>
   )
