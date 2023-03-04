@@ -46,7 +46,7 @@ const CartBody = () => {
     
    <Box m="auto"> 
    {data.CartData && data.CartData?.map(ele=>(
-    <CartItem key={ele.id}  ele={ele}/>
+    <CartItem key={ele._id}  ele={ele}/>
  ))}
  </Box>
  <Stack boxShadow='sm' p='6' rounded='md' bg='gray' maxHeight={150} gap={2} w={{base:"50%",md:"auto"}} mx="auto"

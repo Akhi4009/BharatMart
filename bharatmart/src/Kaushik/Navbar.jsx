@@ -119,7 +119,7 @@ const Navbar = () => {
                 </Text>
               </Box>
               </Link>
-              <Link to={"./laptop"} >
+              <Link to={"/laptop"} >
               <Box align="center">
                 <BsShop fontSize="20px" color="#dbdbdb" cursor="pointer" />
                 <Text cursor="pointer" fontSize="12px" color="white">

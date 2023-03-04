@@ -29,7 +29,7 @@ dispatch(getAddress(token))
  
   
  let res3=data.CartData
- let res4=address.length===0
+ let res4=address?.length===0
 
   const handleOrder=(id)=>{
     
