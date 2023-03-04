@@ -4,6 +4,8 @@ import React from 'react'
 import PaymentTab from '../component/akhilesh/Payment/Tab'
 import {useSelector} from "react-redux"
 import Address from './Address'
+import Snavbar from '../component/akhilesh/Shopping/Snavbar'
+import Footer from '../Kaushik/Footer'
 
 
 
@@ -16,7 +18,7 @@ export const Payment = () => {
  
   return (
     <>
-   
+   <Snavbar/>
     <Stack w="90%" m="auto" direction={{base:"column-reverse",md:"row"}} gap={{base:"5",md:'0'}} justifyContent="center" alignItems="center">
     <Box w={{base:"100%"}} m="auto" >
     <PaymentTab/>
@@ -27,6 +29,7 @@ export const Payment = () => {
     
     
     </Stack>
+    <Footer/>
     </>
   )
 }

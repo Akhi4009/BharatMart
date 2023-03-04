@@ -20,6 +20,8 @@ import { Link } from 'react-router-dom'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../Kaushik/Navbar';
+import Footer from '../Kaushik/Footer';
 
 
 
@@ -84,7 +86,7 @@ export default function Login() {
       duration: 2000,
       isClosable: true,
     })
-    navigate("/carthome")
+    navigate("/")
   })
 
  setdata(initdata)
@@ -98,6 +100,8 @@ export default function Login() {
 
 
   return (
+    <>
+    <Navbar/>
     <div>
     <Flex
      
@@ -164,7 +168,11 @@ export default function Login() {
                placeholder="Login" 
               />
             </Stack>
-           
+            <Stack pt={6}>
+            <Text align={'center'} color={"black"} marginTop={"0px"} fontWeight="bold">
+             Not have a account? <Link to="/signup">Signup</Link>
+            </Text>
+          </Stack>
             </form>
           </Stack>
         </Box>
@@ -172,6 +180,8 @@ export default function Login() {
 
     </Flex>
     </div>
+    <Footer/>
+    </>
   
   );
 }

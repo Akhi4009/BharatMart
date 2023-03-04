@@ -14,7 +14,7 @@ useEffect(()=>{
 dispatch(getProductData())
 },[])
 const Product=useSelector(store=>store.productReducer.product)
-console.log(Product.product)
+
 const data=Product.product?.filter(ele=>ele.category==="ladies")
 
 

@@ -13,7 +13,7 @@ import {
   
   const Footer = () => {
     return (
-      <Box marginTop={'10px'} borderTop="3px solid gray">
+      <Box marginTop={'20px'} borderTop="3px solid gray">
         <Container as={Stack} maxW={"6xl"} py={10}>
           <Box  height={{ base: "40px", md: "40px" }}>
             <Image src={'https://i.ibb.co/Zc5Y127/logo-bharatmart2.png'} height="100%" />
