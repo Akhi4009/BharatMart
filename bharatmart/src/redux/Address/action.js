@@ -40,10 +40,10 @@ export const getAddress=(token)=>async (dispatch)=>{
             },
         });
         const res_1 = await res.json();
-        console.log(res_1);
+       
         dispatch(AddressgetSuccessAction(res_1.data));
     } catch (err) {
-        console.log(err);
+        
         dispatch(AddressgetFailureAction);
     }
 }
@@ -61,8 +61,8 @@ export const addAddress=(payload,token)=>async(dispatch)=>{
             },
             body:JSON.stringify(payload)
         });
-        const res_1= await res.json();
-       console.log(res_1)
+        
+      
        dispatch(AddAddress())
        dispatch(getAddress(token))
      
@@ -82,8 +82,8 @@ export const deleteAddress=(id,token)=>async(dispatch)=>{
                 "authorization":token
             },
         });
-        const res_1= await res.json();
-       console.log(res_1)
+      
+     
        dispatch(DeleteAddress)
        dispatch(getAddress(token))
        
@@ -106,8 +106,8 @@ export const updateAddress=(payload,id,token)=>async(dispatch)=>{
             },
             body:JSON.stringify(payload)
         });
-        const res_1= await res.json();
-       console.log(res_1)
+        
+     
        dispatch(UpdateAddres)
        dispatch(getAddress(token))
     }catch(err){

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const PrivateRoute = ({children}) => {
     
     const token=JSON.parse(localStorage.getItem("token"))||null
-    console.log(token)
+  
 
    
     if(token===null){

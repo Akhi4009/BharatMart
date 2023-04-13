@@ -10,7 +10,7 @@ import { getAddress } from '../../../redux/Address/action'
 const CashOnDel = () => {
 
   const [res,setRes]=useState(false)
-  console.log(res)
+  
   const bgc=res?"#00b5b7":"gray"
   const toast=useToast()
   const navigate=useNavigate()
@@ -29,7 +29,7 @@ dispatch(getAddress(token))
  
   
  let res3=data.CartData
- let res4=address?.length===0
+ 
 
   const handleOrder=(id)=>{
     
@@ -86,7 +86,7 @@ toast({
    
     </HStack>
    </Box>
-   <Button w={{base:"100%",lg:"50%"}} isDisabled={!res||res1||res4} bg={bgc} onClick={()=>handleOrder(res3[0].user)}>Confirm Order</Button>
+   <Button w={{base:"100%",lg:"50%"}} isDisabled={!res||res1} bg={bgc} onClick={()=>handleOrder(res3[0].user)}>Confirm Order</Button>
     </Stack>
   )
 }

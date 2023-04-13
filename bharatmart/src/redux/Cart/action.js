@@ -44,7 +44,7 @@ export const getCardData=(token)=>async (dispatch)=>{
             },
         });
         const res_1 = await res.json();
-        console.log(res_1);
+     
         dispatch(CartgetSuccessAction(res_1));
     } catch (err) {
         console.log(err);
@@ -64,8 +64,8 @@ export const deleteItemFromCart=(id,token)=>async(dispatch)=>{
               
             },
         });
-        const res_1= await res.json();
-       console.log(res_1)
+       
+     
        dispatch(DeleteItemCart)
        dispatch(getCardData(token))
     }catch(err){
@@ -84,7 +84,7 @@ console.log(id)
                 "authorization":token
             }
         });
-        const res_1= await res.json();
+        
        
        dispatch(DeleteItemCart)
        dispatch(getCardData(token))
@@ -106,7 +106,7 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
             },
             body:JSON.stringify(payload)
         });
-        const res_1= await res.json();
+       
       
        dispatch(AddtoCart)
        dispatch(getCardData(token))
@@ -128,8 +128,7 @@ export const updateCart=(payload,id,token)=>async(dispatch)=>{
             },
             body:JSON.stringify(payload)
         });
-        const res_1= await res.json();
-       console.log(res_1)
+       
        dispatch(update)
        dispatch(getCardData(token))
     }catch(err){

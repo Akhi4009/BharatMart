@@ -5,7 +5,7 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  HStack,
+
   InputRightElement,
   Stack,
   Button,
@@ -96,7 +96,7 @@ export default function SignupCard() {
   return (
     <>
     <Navbar/>
-    <div>
+  
     <Flex
      
       align='center'
@@ -108,7 +108,7 @@ export default function SignupCard() {
       >
       
       <Stack justifyContent={"space-around"}  mx={'auto'} w="100%" p={10} bg={"none"}>
-        <Stack textAlign={"center"}  alignItem={'center'} m="auto" bg={"green"}  borderRadius={"5px"} height={"100px"}p={5}  >
+        <Stack textAlign={"center"}   m="auto" bg={"green"}  borderRadius={"5px"} height={"100px"}p={5}  >
           <Heading fontSize={'sm'} color={"white"} textAlign={'center'}>
             SIGN UP
           </Heading>
@@ -127,12 +127,12 @@ export default function SignupCard() {
            
                 <FormControl  isRequired>
                   <FormLabel color={"black"}>Name</FormLabel>
-                  <Input style={{color:"black"}} onChange={handlechange} type="text" value={username} name="username"/>
+                  <Input  onChange={handlechange} type="text" value={username} name="username"/>
                 </FormControl>
               
                 <FormControl  isRequired>
                   <FormLabel color={"black"}>User Name</FormLabel>
-                  <Input style={{color:"black"}} onChange={handlechange} type="text" value={name} name="name"/>
+                  <Input onChange={handlechange} type="text" value={name} name="name"/>
                 </FormControl>
              
                 <FormControl  isRequired>
@@ -151,12 +151,12 @@ export default function SignupCard() {
            
             <FormControl id="email" isRequired>
               <FormLabel color={"black"}>Email address</FormLabel>
-              <Input style={{ color:"black"}} type="email" onChange={handlechange} value={email} name="email" />
+              <Input  type="email" onChange={handlechange} value={email} name="email" />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel color={"black"}>Password</FormLabel>
               <InputGroup >
-                <Input style={{color:"black"}} type={showPassword ? 'text' : 'password'} onChange={handlechange} value={password} name="password" />
+                <Input  type={showPassword ? 'text' : 'password'} onChange={handlechange} value={password} name="password" />
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -171,7 +171,7 @@ export default function SignupCard() {
             <Stack spacing={10} pt={2}>
               <Input
             
-                loadingText="Submitting"
+              
                 type={"submit"}
                 value={"Register"}
                 size="lg"
@@ -181,7 +181,7 @@ export default function SignupCard() {
                 _hover={{
                   bg: 'blue',
                 }}
-               placeholder="Sign up" 
+             
               />
             </Stack>
             <Stack pt={6}>
@@ -195,7 +195,7 @@ export default function SignupCard() {
       </Stack>
 
     </Flex>
-    </div>
+    
     <Footer/>
     </>
   

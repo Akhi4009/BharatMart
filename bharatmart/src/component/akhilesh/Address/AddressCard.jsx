@@ -11,16 +11,8 @@ import {useDispatch,useSelector} from "react-redux"
 import {  deleteAddress, getAddress, updateAddress } from "../../../redux/Address/action"
 import AddressForm from './AddressForm'
 
-// const initialAddress={
-//   name:"",
-//   mobile:"",
-//   address:"",
-//   landmark:"",
-//   pincode:"",
-//   city:"",
-//   state:""
 
-// }
+
 
 
 const AddressCard = () => {
@@ -42,7 +34,7 @@ const AddressCard = () => {
   },[])
 
   const Address=useSelector(store=>store.addressReducer.Address)
-console.log(Address)
+
 
  
 const handleSubmit=(e,data)=>{
@@ -86,8 +78,7 @@ const initialAddress={
   state:state
 
 }
-console.log(state,city,mobile)
- 
+
   return (
          <Box w={{base:"90%"}} m="auto">
         <Heading as="h2" size="md" m={5}>Delivery Address</Heading> 
