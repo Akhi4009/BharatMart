@@ -43,7 +43,7 @@ export const getProductData=()=>async (dispatch)=>{
             },
         });
         const res_1 = await res.json();
-        console.log(res_1);
+       
         dispatch(ProductgetSuccessAction(res_1));
     } catch (err) {
         console.log(err);
@@ -62,8 +62,8 @@ export const deleteItemFromProduct=(id)=>async(dispatch)=>{
               
             },
         });
-        const res_1= await res.json();
-       console.log(res_1)
+       
+      
        dispatch(DeleteItemProduct)
        dispatch(getProductData())
     }catch(err){
@@ -85,8 +85,8 @@ export const addToProduct=(payload)=>async(dispatch)=>{
             },
             body:JSON.stringify(payload)
         });
-        const res_1= await res.json();
-       console.log(res_1)
+   
+     
        dispatch(AddtoProduct)
        dispatch(getProductData())
     }catch(err){
@@ -106,8 +106,8 @@ export const updateProduct=(payload,id)=>async(dispatch)=>{
             },
             body:JSON.stringify(payload)
         });
-        const res_1= await res.json();
-       console.log(res_1)
+       
+     
        dispatch(UpdateProduct)
        dispatch(getProductData())
     }catch(err){

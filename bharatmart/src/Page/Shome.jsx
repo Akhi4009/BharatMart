@@ -1,4 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+import { useSelector,useDispatch} from 'react-redux'
+import { getProductData } from '../redux/Product/action'
 
 
 import { Image,Flex,Heading,Text, Stack } from '@chakra-ui/react'
@@ -14,6 +16,14 @@ import Footer from '../Sachin/Footer'
 
 const Shome = () => {
   const [change,setChange]=useState(false)
+  const dispatch=useDispatch()
+
+  useEffect(()=>{
+  dispatch(getProductData())
+  },[])
+
+  const Product=useSelector(store=>store.productReducer.product)
+  
 
   const handleChange=()=>{
     setChange(prev=>!prev)
@@ -40,13 +50,13 @@ const Shome = () => {
     <Stack w="90%" m="auto">
    
     <Heading size="lg" as="h1" m={20}>Ladies Wear</Heading>
-    <Ladies/>
+    <Ladies Product={Product}/>
     <Heading size="lg" as="h1" mt={20}>Mens Wear</Heading>
-    <Mens/>
+    <Mens Product={Product}/>
     <Heading size="lg" as="h1" mt={20}>Footwear </Heading>
-    <Footwear/>
+    <Footwear Product={Product}/>
     <Heading size="lg" as="h1" mt={20}>Industrial Chemical </Heading>
-    <Industrial/>
+    <Industrial Product={Product}/>
     </Stack>
     <Footer/>
 

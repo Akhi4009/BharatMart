@@ -52,7 +52,7 @@ const Address = () => {
     },[])
 
   const Address=useSelector(store=>store.addressReducer.Address)
-  const res=(Address.length==0)
+  const res=(Address&&Address.length==0)
   const isLoading=useSelector(store=>store.addressReducer.isLoading)
 //   console.log(Address)
 

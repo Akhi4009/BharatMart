@@ -5,7 +5,7 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  HStack,
+
   InputRightElement,
   Stack,
   Button,
@@ -75,10 +75,10 @@ export default function Login() {
   }
   const handlesubmit=async(e)=>{
     e.preventDefault()
-  console.log(data)
+ 
   login(data).then(res=>{
     localStorage.setItem("token",JSON.stringify(res.token))
-    console.log(res)
+    
     toast({
       title:`${res.message}`,
       description: "Thanku",
@@ -102,7 +102,7 @@ export default function Login() {
   return (
     <>
     <Navbar/>
-    <div>
+ 
     <Flex
      
       align='center'
@@ -114,7 +114,7 @@ export default function Login() {
       >
       
       <Stack justifyContent={"space-around"}  mx={'auto'} w="100%" p={10} bg={"none"}>
-        <Stack textAlign={"center"}  alignItem={'center'} m="auto" bg={"green"}  borderRadius={"5px"} height={"100px"}p={5}  >
+        <Stack textAlign={"center"}   m="auto" bg={"green"}  borderRadius={"5px"} height={"100px"}p={5}  >
           <Heading fontSize={'sm'} color={"white"} textAlign={'center'}>
             LOG IN
           </Heading>
@@ -135,12 +135,12 @@ export default function Login() {
               
             <FormControl id="email" isRequired>
             <FormLabel color={"black"}>Email address</FormLabel>
-            <Input style={{ color:"black"}} type="email" onChange={handlechange} value={email} name="email" />
+            <Input  type="email" onChange={handlechange} value={email} name="email" />
           </FormControl>  
           <FormControl id="password" isRequired>
           <FormLabel color={"black"}>Password</FormLabel>
           <InputGroup >
-            <Input style={{color:"black"}} type={showPassword ? 'text' : 'password'} onChange={handlechange} value={password} name="password" />
+            <Input  type={showPassword ? 'text' : 'password'} onChange={handlechange} value={password} name="password" />
             <InputRightElement h={'full'}>
               <Button
                 variant={'ghost'}
@@ -155,7 +155,7 @@ export default function Login() {
          <Stack spacing={5} pt={2}>
               <Input
             
-                loadingText="Submitting"
+               
                 type={"submit"}
                 value={"Login"}
                 size="lg"
@@ -165,7 +165,7 @@ export default function Login() {
                 _hover={{
                   bg: 'blue',
                 }}
-               placeholder="Login" 
+              
               />
             </Stack>
             <Stack pt={6}>
@@ -179,7 +179,7 @@ export default function Login() {
       </Stack>
 
     </Flex>
-    </div>
+
     <Footer/>
     </>
   
