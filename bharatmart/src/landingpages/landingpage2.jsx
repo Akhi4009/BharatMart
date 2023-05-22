@@ -8,7 +8,7 @@ import { Flex, Spacer } from '@chakra-ui/react'
 
 
 
-export  const LandingPage2=()=>{
+export  const LandingPages2=()=>{
 
 
 

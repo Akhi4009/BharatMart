@@ -9,11 +9,11 @@ import LadiesPage from './LadiesPage'
 import MensPage from './MensPage'
 import FootwearPage from './FootwearPage'
 import Industrialpage from './Industrialpage'
-import Home from '../Kaushik/Home'
+import Home from '../Sachin/Home'
 import PrivateRoute from './PrivateRoute'
 import ProductDetails from './ProductDetails'
-import Laptop from '../Kaushik/Laptop'
-import Details from '../Kaushik/Details'
+import Laptop from '../Sachin/Laptop'
+import Details from '../Sachin/Details'
 
 
  

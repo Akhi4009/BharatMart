@@ -7,7 +7,7 @@ import { Flex, Spacer } from '@chakra-ui/react'
 
 
 
-export  const LandingPage1=()=>{
+export  const LandingPage2=()=>{
 
 
 
@@ -27,12 +27,12 @@ return (
 
 
     <Card fontSize="25px" fontWeight="bold" textAlign="left"borderTop="3px solid rgb(46,49,146)"marginBottom="-20px"paddingTop="-40px">
-        <h1>Electronics & Electrical Goods & Supplies</h1>
+        <h1>Building Construction Material & Equipment</h1>
     </Card>
   <SimpleGrid columns={[1,1,2]} marginTop={"20px"}  >
   
      <SimpleGrid border="0px solid yellow"   columns={[1]} width={{lg:'380px',md:"250px",sm:"100px"}} >
-     <Box  height="520px"  width={{lg:'400px',md:"250px",sm:"0px"}}  backgroundImage="url('https://media.istockphoto.com/id/1291177121/photo/low-angle-of-tall-building-in-manhattan.jpg?b=1&s=170667a&w=0&k=20&c=Mq9Qm3UjzrqNKs6HFOFNJps-P9z4ijK1aTx1nP4gEes=')">
+     <Box  height="520px"  width={{lg:'400px',md:"250px",sm:"0px"}}  backgroundImage="url('https://wallpaperaccess.com/full/2882373.jpg">
      <Card
      backgroundColor="none" 
      boxShadow="none"
@@ -44,10 +44,10 @@ textAlign="left"
 lineHeight="30px"
 marginLeft="30px"
 >
-     <p>Prefabricated Houses
-Scaffolding Planks & Plates
-Construction Machines
-Crushing Machines & Plants</p></Card>
+     <p>Voltage & Power Stabilizers
+GPS and Navigation Devices
+Biometrics & Access Control Devices
+CCTV, Surveillance Systems and Parts</p></Card>
 <Button
 
     width="120px"
@@ -68,7 +68,7 @@ Crushing Machines & Plants</p></Card>
   <Box boxShadow=" rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"  border="0px solid black" marginTop={"0px"}  height={"140px"} width={{lg:"300px",md:"200px",sm:"100px"}} >
   <Box display={"flex"} alignItems={"center"}>
     
-    <Card marginTop="10px" width={"120px"} height={"120px"}> <img  src="https://3.imimg.com/data3/RS/UH/GLADMIN-5385/brick-making-machines-125x125.jpg" alt="" /></Card>
+    <Card marginTop="10px" width={"120px"} height={"120px"}> <img  src="https://4.imimg.com/data4/HI/RA/GLADMIN-181283/photocopier-machine-125x125.jpg" alt="" /></Card>
 
 <Card marginLeft="10px" boxShadow="  0px" >
       <h5 style={{fontWeight:"bold" ,marginTop:"10px",lineHeight:"20px"}}>Brick Making Machines</h5>

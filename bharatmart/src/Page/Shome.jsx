@@ -8,7 +8,7 @@ import Footwear from '../component/akhilesh/Footwear/Footwear'
 import Industrial from '../component/akhilesh/Industrial/Industrial'
 import Category from '../component/akhilesh/Shopping/category'
 import Snavbar from '../component/akhilesh/Shopping/Snavbar'
-import Footer from '../Kaushik/Footer'
+import Footer from '../Sachin/Footer'
 
 
 

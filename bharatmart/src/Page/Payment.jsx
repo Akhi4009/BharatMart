@@ -5,7 +5,7 @@ import PaymentTab from '../component/akhilesh/Payment/Tab'
 import {useSelector} from "react-redux"
 import Address from './Address'
 import Snavbar from '../component/akhilesh/Shopping/Snavbar'
-import Footer from '../Kaushik/Footer'
+import Footer from '../Sachin/Footer'
 
 
 

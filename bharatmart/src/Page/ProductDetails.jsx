@@ -27,7 +27,7 @@ import {BiMinus} from "react-icons/bi"
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/Cart/action";
 import Snavbar from "../component/akhilesh/Shopping/Snavbar";
-import Footer from "../Kaushik/Footer";
+import Footer from "../Sachin/Footer";
 
 
 

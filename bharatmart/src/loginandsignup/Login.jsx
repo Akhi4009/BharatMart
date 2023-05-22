@@ -20,8 +20,8 @@ import { Link } from 'react-router-dom'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../Kaushik/Navbar';
-import Footer from '../Kaushik/Footer';
+import Navbar from '../Sachin/Navbar';
+import Footer from '../Sachin/Footer';
 
 
 
